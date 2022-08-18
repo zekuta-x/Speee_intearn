@@ -12,3 +12,4 @@ AllCops:
     - public/**/*
   TargetRubyVersion: 3.1.2
   TargetRailsVersion: 7.0.2
+  NewCops: enable
