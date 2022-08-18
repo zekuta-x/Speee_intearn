@@ -3,7 +3,7 @@
 ## branch命名規則
 『Issue番号-prefix-やる事 (単語は ”_” 区切り)』
 例：Issue「#1 Rubocopを入れる」なら「1-add-rubocop_install」
-### predixの定義
+### prefixの定義
 - `add`: 新規追加
 - `fix`: 修正（バグ含む）
 - `refactor`: 挙動の変更がない修正
