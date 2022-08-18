@@ -10,7 +10,8 @@
 - remove: 単に消すだけ
 - test: テスト
 
-参考：https://qiita.com/konatsu_p/items/dfe199ebe3a7d2010b3e
+参考記事
+- [qiita記事](https://qiita.com/konatsu_p/items/dfe199ebe3a7d2010b3e)
 
 ## commit message
 可読性を上げるため日本語を用いる
@@ -22,13 +23,9 @@ add :ユーザモデルを追加
 ユーザモデルの属性は◯◯、▲▲
 ```
 参考記事
-- git commitメッセージ
+- [git commitメッセージ](https://qiita.com/itosho/items/9565c6ad2ffc24c09364)
 
-  https://qiita.com/itosho/items/9565c6ad2ffc24c09364
-
-- CUIで複数行書く方法
-
-  https://qiita.com/mimickn/items/586eb64e9da5b5c63e4f
+- [CUIで複数行書く方法](https://qiita.com/mimickn/items/586eb64e9da5b5c63e4f)
 
 
 ## test
