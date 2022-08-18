@@ -1,3 +1,39 @@
+# 開発のすゝめ
+
+## branch命名規則
+『Issue番号-prefix-やる事 (単語は ”_” 区切り)』
+例：Issue「#1 Rubocopを入れる」なら「1-add-rubocop_install」
+### prefixの定義
+- `add`: 新規追加
+- `fix`: 修正（バグ含む）
+- `refactor`: 挙動の変更がない修正
+- `remove`: 単に消すだけ
+- `test`: テスト
+
+参考記事
+- [qiita記事](https://qiita.com/konatsu_p/items/dfe199ebe3a7d2010b3e)
+
+## commit message
+可読性を上げるため日本語を用いる
+### prefixの定義
+branch命名規則と同じ
+
+例：
+```
+add: ユーザモデルを追加
+(空行)
+ユーザモデルの属性は◯◯、▲▲
+```
+参考記事
+- [git commitメッセージ](https://qiita.com/itosho/items/9565c6ad2ffc24c09364)
+
+- [CUIで複数行書く方法](https://qiita.com/mimickn/items/586eb64e9da5b5c63e4f)
+
+
+## test
+- 標準のministestを使う
+- 可読性を上げるため日本語を用いる
+
 # Sample App
 
 メインの Rails アプリケーション
@@ -14,7 +50,7 @@ docker-compose run --rm app bin/setup
 
 ``` bash
 docker-compose up
-open http://localhost:13000
+open http://localhost:3000
 ```
 
 ## テストの実行
