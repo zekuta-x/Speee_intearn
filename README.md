@@ -4,21 +4,23 @@
 『Issue番号-prefix-やる事 (単語は ”_” 区切り)』
 例：Issue「#1 Rubocopを入れる」なら「1-add-rubocop_install」
 ### predixの定義
-- add: 新規追加
-- fix: 修正（バグ含む）
-- refactor: 挙動の変更がない修正
-- remove: 単に消すだけ
-- test: テスト
+- `add`: 新規追加
+- `fix`: 修正（バグ含む）
+- `refactor`: 挙動の変更がない修正
+- `remove`: 単に消すだけ
+- `test`: テスト
 
 参考記事
 - [qiita記事](https://qiita.com/konatsu_p/items/dfe199ebe3a7d2010b3e)
 
 ## commit message
 可読性を上げるため日本語を用いる
+### prefixの定義
+branch命名規則と同じ
 
 例：
 ```
-add :ユーザモデルを追加
+add: ユーザモデルを追加
 (空行)
 ユーザモデルの属性は◯◯、▲▲
 ```
