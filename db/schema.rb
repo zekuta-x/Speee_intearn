@@ -12,12 +12,12 @@
 
 ActiveRecord::Schema[7.0].define(version: 2022_08_19_052345) do
   create_table "assessable_areas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "company_id"
+    t.bigint "store_id"
     t.bigint "municipality_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_assessable_areas_on_company_id"
     t.index ["municipality_id"], name: "index_assessable_areas_on_municipality_id"
+    t.index ["store_id"], name: "index_assessable_areas_on_store_id"
   end
 
   create_table "companies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -76,8 +76,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_052345) do
     t.index ["store_id"], name: "index_target_property_types_on_store_id"
   end
 
-  add_foreign_key "assessable_areas", "companies"
   add_foreign_key "assessable_areas", "municipalities"
+  add_foreign_key "assessable_areas", "stores"
   add_foreign_key "municipalities", "prefectures"
   add_foreign_key "stores", "companies"
   add_foreign_key "stores", "municipalities"
