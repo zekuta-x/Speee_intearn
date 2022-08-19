@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_19_045557) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_19_050830) do
   create_table "companies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.integer "ieul_company_id"
@@ -38,5 +38,27 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_045557) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "stores", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.bigint "company_id", null: false
+    t.integer "ieul_store_id"
+    t.string "logo_url"
+    t.string "post_code"
+    t.bigint "municipality_id", null: false
+    t.string "property_address"
+    t.string "phone_number"
+    t.string "fax_number"
+    t.string "open_hours"
+    t.string "holiday"
+    t.text "catch_copy"
+    t.text "introduction"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_stores_on_company_id"
+    t.index ["municipality_id"], name: "index_stores_on_municipality_id"
+  end
+
   add_foreign_key "municipalities", "prefectures"
+  add_foreign_key "stores", "companies"
+  add_foreign_key "stores", "municipalities"
 end
