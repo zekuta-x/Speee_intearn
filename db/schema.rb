@@ -36,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_092752) do
     t.string "logo_url", null: false
     t.string "post_code"
     t.bigint "city_id", null: false
-    t.string "property_address", null: false
+    t.string "other_address", null: false
     t.string "phone_number"
     t.string "fax_number"
     t.string "open_hours"

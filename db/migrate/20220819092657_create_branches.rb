@@ -7,7 +7,7 @@ class CreateBranches < ActiveRecord::Migration[7.0]
       t.string :logo_url, null: false
       t.string :post_code
       t.references :city, null: false, foreign_key: true
-      t.string :property_address, null: false
+      t.string :other_address, null: false
       t.string :phone_number
       t.string :fax_number
       t.string :open_hours
