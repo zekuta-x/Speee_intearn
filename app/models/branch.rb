@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Store < ApplicationRecord
+class Branch < ApplicationRecord
   belongs_to :company
   belongs_to :city
   has_many :assessable_areas, dependent: :restrict_with_error
