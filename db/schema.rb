@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_19_072519) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_19_072919) do
   create_table "assessable_areas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "store_id"
     t.bigint "municipality_id"
@@ -40,7 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_072519) do
     t.string "phone_number"
     t.string "fax_number"
     t.string "open_hours"
-    t.string "holiday"
+    t.string "regular_holiday"
     t.text "catch_copy"
     t.text "introduction"
     t.datetime "created_at", null: false
