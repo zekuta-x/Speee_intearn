@@ -2,5 +2,5 @@
 
 class Municipality < ApplicationRecord
   belongs_to :prefecture
-  has_many :assessable_areas
+  has_many :assessable_areas, dependent: :restrict_with_error
 end
