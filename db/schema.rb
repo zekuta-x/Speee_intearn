@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_19_073538) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_19_082311) do
   create_table "assessable_areas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "store_id"
     t.bigint "municipality_id"
@@ -46,6 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_073538) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["company_id"], name: "index_branchs_on_company_id"
+    t.index ["ieul_branch_id"], name: "index_branchs_on_ieul_branch_id", unique: true
     t.index ["municipality_id"], name: "index_branchs_on_municipality_id"
   end
 
@@ -62,18 +63,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_073538) do
     t.integer "ieul_company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name", "ieul_company_id"], name: "index_companies_on_name_and_ieul_company_id", unique: true
   end
 
   create_table "prefectures", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_prefectures_on_name", unique: true
   end
 
   create_table "property_types", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_property_types_on_name", unique: true
   end
 
   add_foreign_key "assessable_areas", "branchs", column: "store_id"
