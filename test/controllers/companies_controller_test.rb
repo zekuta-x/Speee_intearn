@@ -4,12 +4,8 @@ require 'test_helper'
 
 # CompaneisControllerのrootingTest
 class CompaniesControllerTest < ActionDispatch::IntegrationTest
-  def show
-    resources :companies, only: %i[show]
-  end
-
   test 'should get companies page' do
-    get companies_show_url
+    get company_url(1)
     assert_response :success
-  # end
+  end
 end
