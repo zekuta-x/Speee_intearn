@@ -14,13 +14,14 @@
 - [qiita記事](https://qiita.com/konatsu_p/items/dfe199ebe3a7d2010b3e)
 
 ## commit message
-可読性を上げるため日本語を用いる
+『\[#Issue番号\] prefix: 変更内容』
+変更内容には可読性を上げるため日本語を用いる
 ### prefixの定義
 branch命名規則と同じ
 
 例：
 ```
-add: ユーザモデルを追加
+[#1000] add: ユーザモデルを追加
 (空行)
 ユーザモデルの属性は◯◯、▲▲
 ```
