@@ -42,7 +42,6 @@ add: ユーザモデルを追加
 
 ``` bash
 docker-compose build
-docker-compose run --rm app yarn install --check-files
 docker-compose run --rm app bin/setup
 ```
 
