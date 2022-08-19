@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_19_050830) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_19_051339) do
+  create_table "assessable_areas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "company_id"
+    t.bigint "municipality_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_assessable_areas_on_company_id"
+    t.index ["municipality_id"], name: "index_assessable_areas_on_municipality_id"
+  end
+
   create_table "companies", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.integer "ieul_company_id"
@@ -58,6 +67,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_050830) do
     t.index ["municipality_id"], name: "index_stores_on_municipality_id"
   end
 
+  add_foreign_key "assessable_areas", "companies"
+  add_foreign_key "assessable_areas", "municipalities"
   add_foreign_key "municipalities", "prefectures"
   add_foreign_key "stores", "companies"
   add_foreign_key "stores", "municipalities"
