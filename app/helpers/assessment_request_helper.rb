@@ -1,0 +1,2 @@
+module AssessmentRequestHelper
+end
