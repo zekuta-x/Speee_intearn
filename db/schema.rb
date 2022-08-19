@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_19_072130) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_19_072519) do
   create_table "assessable_areas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "store_id"
     t.bigint "municipality_id"
@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_072130) do
   create_table "branchs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.bigint "company_id", null: false
-    t.integer "ieul_store_id"
+    t.integer "ieul_branch_id"
     t.string "logo_url"
     t.string "post_code"
     t.bigint "municipality_id", null: false
