@@ -1,0 +1,16 @@
+name: lint
+on:   
+  pull_request:
+    branches: [ main ]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Run rubocop
+        run: bundle exec rubocop --parallel
