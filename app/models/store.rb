@@ -4,5 +4,5 @@ class Store < ApplicationRecord
   belongs_to :company
   belongs_to :city
   has_many :assessable_areas, dependent: :restrict_with_error
-  has_many :target_property_types, dependent: :restrict_with_error
+  has_many :branch_property_types, dependent: :restrict_with_error
 end
