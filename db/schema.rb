@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_19_071646) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_19_072130) do
   create_table "assessable_areas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "store_id"
     t.bigint "municipality_id"
@@ -27,6 +27,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_071646) do
     t.datetime "updated_at", null: false
     t.index ["property_type_id"], name: "index_branch_property_types_on_property_type_id"
     t.index ["store_id"], name: "index_branch_property_types_on_store_id"
+  end
+
+  create_table "branchs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.bigint "company_id", null: false
+    t.integer "ieul_store_id"
+    t.string "logo_url"
+    t.string "post_code"
+    t.bigint "municipality_id", null: false
+    t.string "property_address"
+    t.string "phone_number"
+    t.string "fax_number"
+    t.string "open_hours"
+    t.string "holiday"
+    t.text "catch_copy"
+    t.text "introduction"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_branchs_on_company_id"
+    t.index ["municipality_id"], name: "index_branchs_on_municipality_id"
   end
 
   create_table "cities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -56,31 +76,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_071646) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "stores", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "name"
-    t.bigint "company_id", null: false
-    t.integer "ieul_store_id"
-    t.string "logo_url"
-    t.string "post_code"
-    t.bigint "municipality_id", null: false
-    t.string "property_address"
-    t.string "phone_number"
-    t.string "fax_number"
-    t.string "open_hours"
-    t.string "holiday"
-    t.text "catch_copy"
-    t.text "introduction"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_stores_on_company_id"
-    t.index ["municipality_id"], name: "index_stores_on_municipality_id"
-  end
-
+  add_foreign_key "assessable_areas", "branchs", column: "store_id"
   add_foreign_key "assessable_areas", "cities", column: "municipality_id"
-  add_foreign_key "assessable_areas", "stores"
+  add_foreign_key "branch_property_types", "branchs", column: "store_id"
   add_foreign_key "branch_property_types", "property_types"
-  add_foreign_key "branch_property_types", "stores"
+  add_foreign_key "branchs", "cities", column: "municipality_id"
+  add_foreign_key "branchs", "companies"
   add_foreign_key "cities", "prefectures"
-  add_foreign_key "stores", "cities", column: "municipality_id"
-  add_foreign_key "stores", "companies"
 end
