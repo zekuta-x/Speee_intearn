@@ -61,7 +61,7 @@ docker-compose run --rm app bin/rails test
 ## Rubocop の実行
 
 ``` bash
-docker-compose run --rm app rubocop
+docker-compose run --rm app bundle exec rubocop
 ```
 
 ## サーバへのデプロイ
