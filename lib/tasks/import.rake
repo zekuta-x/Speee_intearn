@@ -3,10 +3,9 @@
 require 'csv'
 
 namespace :import do
-  desc 'csvファイルからマスタデータをモデルにインポートする'
-
   data_dir = Rails.root.join 'lib/tasks/data/'
 
+  desc 'csvファイルから店舗データをインポートする e.g. rails import:branches'
   task branches: :environment do
     branch_file = data_dir.join 'branch_master.csv'
     list = []
@@ -35,6 +34,7 @@ namespace :import do
     Branch.create!(list)
   end
 
+  desc 'csvファイルから都道府県・市区町村データをインポートする e.g. rails import:address'
   task address: :environment do
     prefec_file = data_dir.join 'prefectures_master.csv'
     CSV.foreach(prefec_file, headers: true) do |row|
