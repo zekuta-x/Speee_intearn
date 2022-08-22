@@ -2,7 +2,7 @@
 
 require 'csv'
 
-namespace :import do
+namespace :import do  # rubocop:disable Metrics/BlockLength
   data_dir = Rails.root.join 'lib/tasks/data/'
 
   desc 'csvファイルから店舗データをインポートする e.g. rails import:branches'
