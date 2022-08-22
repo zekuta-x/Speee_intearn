@@ -1,6 +1,5 @@
 <%= form_with url: ("/assessments") do |assessment_form| %>
-<div class="">企業ID</div>
-<%= assessment_form.text_field :branch_id, class: "item-text-field" %>
+<%= assessment_form.hidden_field :branch_id, class: "item-text-field" %>
 <div class="">お名前</div>
 <%= assessment_form.text_field :user_name, class: "item-text-field" %>
 <div class="">ふりがな</div>
@@ -9,8 +8,6 @@
 <%= assessment_form.text_field :user_tel, class: "item-text-field" %>
 <div class="">メールアドレス</div>
 <%= assessment_form.email_field :user_email, class: "item-text-field" %>
-<div class="">住所ID</div>
-<%= assessment_form.text_field :property_city, class: "item-text-field" %>
 <div class="">住所</div>
 <%= assessment_form.text_field :property_address, class: "item-text-field" %>
 <div class="">物件種別</div>
