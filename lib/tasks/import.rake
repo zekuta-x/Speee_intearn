@@ -34,4 +34,17 @@ namespace :import do
 
     Branch.create!(list)
   end
+
+  task address: :environment do
+    prefec_file = data_dir.join 'prefectures_master.csv'
+    CSV.foreach(prefec_file, headers: true) do |row|
+      Prefecture.find_or_create_by(id: row['id'], name: row['name'])
+    end
+
+    city_file = data_dir.join 'cities_master.csv'
+    CSV.foreach(city_file, headers: true) do |row|
+      prefec = Prefecture.find_by(id: row['prefecture_id'])
+      prefec.cities.find_or_create_by(id: row['id'], name: row['name'])
+    end
+  end
 end
