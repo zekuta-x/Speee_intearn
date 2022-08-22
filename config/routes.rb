@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  root 'assessment_request#request_assessment'
+  # root 'assessment_request#request_assessment'
+  # resources :assessment_request, only:%i[assessment_request]
+  # get '/show/:id', to: 'user#show'
+  # post '/show/:id',to: 'user#create'
+  resources :assessments
 end
