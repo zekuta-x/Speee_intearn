@@ -14,7 +14,7 @@ class Branch < ApplicationRecord
   validates :other_address, presence: true
   validates :catch_copy, presence: true
   validates :introduction, presence: true
-  validates :post_code, format: { with: VALID_POST_CODE_REGEX }
-  validates :phone_number, format: { with: VALID_NUMBER_REGEX }
-  validates :fax_number, format: { with: VALID_NUMBER_REGEX }
+  validates :post_code, format: { with: VALID_POST_CODE_REGEX }, allow_blank: true
+  validates :phone_number, format: { with: VALID_NUMBER_REGEX }, allow_blank: true
+  validates :fax_number, format: { with: VALID_NUMBER_REGEX }, allow_blank: true
 end
