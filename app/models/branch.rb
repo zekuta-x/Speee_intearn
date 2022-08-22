@@ -12,9 +12,9 @@ class Branch < ApplicationRecord
   validates :other_address, presence: true
   validates :catch_copy, presence: true
   validates :introduction, presence: true
-  VALID_POST_CODE_REGEX = /[0-9]{3}-[0-9]{4}/
+  VALID_POST_CODE_REGEX = /\A[0-9]{3}-[0-9]{4}\z/
   validates :post_code, format: { with: VALID_POST_CODE_REGEX }
-  VALID_NUMBER_REGEX = /^0\d{1,4}-\d{1,4}-\d{3,4}$/
+  VALID_NUMBER_REGEX = /\A0\d{1,4}-\d{1,4}-\d{3,4}\z/
   validates :phone_number, format: { with: VALID_NUMBER_REGEX }
   validates :fax_number, format: { with: VALID_NUMBER_REGEX }
 end
