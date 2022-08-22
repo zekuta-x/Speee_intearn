@@ -51,10 +51,14 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 
-#Add HTTP requests within the application
+# Add HTTP requests within the application
 gem 'httpclient'
 
+# Loading Env Files
 gem 'dotenv-rails'
+
+# Add HTTP requests within the application
+gem 'faraday'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

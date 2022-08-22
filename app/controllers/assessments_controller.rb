@@ -6,11 +6,8 @@ def show
 end
 
 def create
-    a = params.require(:property_address)
-    pp a
-
     @params = {
-    'branch_id' => "c",
+    'branch_id' => 1,
     'property_city' => "s",
     'property_address' =>  params.require(:property_address),
     'property_type' => params.require(:property_type),
@@ -25,15 +22,24 @@ def create
     'user_email' => params.require(:user_email),
     'user_name' => params.require(:user_name),
     'user_name_kana' => params.require(:user_name_kana),
-    'user_tel' =>"aa",
-    'company' =>"aa"
-    }      
+    'user_tel' => params.require(:user_tel),
+    }
     pp @params
 
-        # client = HTTPClient.new
-        # request = client.get(ENV['API_URI'],query)
-        # render JSON: JSON.parse(request.body)
+    conn = Faraday::Connection.new(url:ENV['API_URI']) do |conn|
+        conn.params = @params
+        conn.adapter :net_http do |http|
+            http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+      end
+    end
+
+    pp conn
+
+    response = conn.post
+
+    # render JSON: JSON.parse(request.body)
 end
+
 # def request_assessment
 #     @assessment_request = User.new
 #       @assessment_request = user{}
