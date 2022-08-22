@@ -8,13 +8,13 @@ namespace :import do  # rubocop:disable Metrics/BlockLength
   desc 'csvファイルから店舗データをインポートする e.g. rails import:branches'
   task branches: :environment do
     branch_file = data_dir.join 'branch_master.csv'
-    list = []
+    new_branches_list = []
     CSV.foreach(branch_file, headers: true) do |row|
       company = Company.find_or_create_by(name: row['企業名'], ieul_company_id: row['ieul_企業id'])
       prefecture = Prefecture.find_by(name: row['都道府県'])
       city = prefecture.cities.find_by(name: row['市区町村'])
 
-      list << {
+      new_branches_list << {
         name: row['店舗名'],
         company:,
         ieul_branch_id: row['ieul_店舗id'],
@@ -31,7 +31,7 @@ namespace :import do  # rubocop:disable Metrics/BlockLength
       }
     end
 
-    Branch.create!(list)
+    Branch.create!(new_branches_list)
   end
 
   desc 'csvファイルから都道府県・市区町村データをインポートする e.g. rails import:address'
