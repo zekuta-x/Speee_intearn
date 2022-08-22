@@ -6,6 +6,7 @@ class CreateCompanies < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-    add_index :companies, [:name, :ieul_company_id], unique: true
+    add_index :companies, :name, unique: true
+    add_index :companies, :ieul_company_id, unique: true
   end
 end

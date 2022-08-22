@@ -63,7 +63,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_19_092752) do
     t.integer "ieul_company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name", "ieul_company_id"], name: "index_companies_on_name_and_ieul_company_id", unique: true
+    t.index ["ieul_company_id"], name: "index_companies_on_ieul_company_id", unique: true
+    t.index ["name"], name: "index_companies_on_name", unique: true
   end
 
   create_table "prefectures", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
