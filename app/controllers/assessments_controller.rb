@@ -1,9 +1,7 @@
 class AssessmentsController < ApplicationController
-def new
-end
+def new;end
 
-def show
-end
+def show;end
 
 def create
     host = request.host
@@ -44,5 +42,4 @@ def create
     else
         redirect_to  "/assessments/1", notice: '査定依頼が正常に完了しませんでした'
     end 
-end
 end
