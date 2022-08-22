@@ -1,7 +1,7 @@
 class CreateBranches < ActiveRecord::Migration[7.0]
   def change
     create_table :branches do |t|
-      t.string :name, null: false
+      t.string :name
       t.references :company, null: false, foreign_key: true
       t.integer :ieul_branch_id, null: false
       t.string :logo_url, null: false

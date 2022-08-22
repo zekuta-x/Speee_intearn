@@ -9,7 +9,6 @@ class Branch < ApplicationRecord
   VALID_POST_CODE_REGEX = /\A[0-9]{3}-[0-9]{4}\z/
   VALID_NUMBER_REGEX = /\A0\d{1,4}-\d{1,4}-\d{3,4}\z/
 
-  validates :name, presence: true
   validates :ieul_branch_id, presence: true, uniqueness: true
   validates :logo_url, presence: true
   validates :other_address, presence: true
