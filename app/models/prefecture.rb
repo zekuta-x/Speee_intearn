@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 class Prefecture < ApplicationRecord
-  valiadtes :name, presence: true
+  validates :name, presence: true
 end

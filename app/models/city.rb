@@ -4,5 +4,5 @@ class City < ApplicationRecord
   belongs_to :prefecture
   has_many :assessable_areas, dependent: :restrict_with_error
 
-  valiadtes :name, presence: true
+  validates :name, presence: true
 end
