@@ -82,32 +82,32 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_020603) do
   end
 
   create_table "reviews", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "family_name", null: false
+    t.string "last_name", null: false
     t.string "first_name", null: false
     t.bigint "branch_id", null: false
     t.integer "age", null: false
     t.bigint "city_id", null: false
-    t.string "property_address", null: false
+    t.string "other_address", null: false
     t.integer "response_satisfaction", default: 0, null: false
-    t.integer "sale_number", default: 0, null: false
-    t.integer "sale_reason", default: 0, null: false
+    t.integer "number_of_sales", default: 0, null: false
+    t.integer "reason_for_sale", default: 0, null: false
     t.bigint "property_type_id", null: false
     t.date "sale_consideration_period", null: false
     t.date "assessment_request_period", null: false
     t.date "sale_period", null: false
-    t.date "sale_time", null: false
-    t.date "delivery_time", null: false
+    t.date "sold_out_period", null: false
+    t.date "delivery_period", null: false
     t.integer "appraisal_price", null: false
     t.integer "sold_price", null: false
     t.integer "contract_price", null: false
     t.boolean "price_reduction_flag", null: false
     t.integer "price_reduction_time"
     t.integer "price_reduction"
-    t.integer "form", default: 0, null: false
-    t.string "heading", null: false
-    t.text "sale_concerns", null: false
-    t.text "company_selection_reason", null: false
-    t.text "reasons_response_satisfaction", null: false
+    t.integer "contract_category", default: 0, null: false
+    t.string "review_title", null: false
+    t.text "concerns_about_the_sale", null: false
+    t.text "reason_for_company_selection", null: false
+    t.text "reason_for_response_satisfaction", null: false
     t.text "advice", null: false
     t.text "improvement"
     t.datetime "created_at", null: false
