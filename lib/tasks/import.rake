@@ -9,15 +9,9 @@ namespace :import do # rubocop:disable Metrics/BlockLength
   task branches: :environment do  # rubocop:disable Metrics/BlockLength
     branch_csv_path = data_dir.join 'branch_master.csv'
 
-    Company.transaction do
+    ActiveRecord::Base.transaction do
       CSV.foreach(branch_csv_path, headers: true) do |row|
-        Company.find_or_create_by!(name: row['企業名'], ieul_company_id: row['ieul_企業id'])
-      end
-    end
-
-    Branch.transaction do
-      CSV.foreach(branch_csv_path, headers: true) do |row|
-        company = Company.find_by(name: row['企業名'])
+        company = Company.find_or_create_by!(name: row['企業名'], ieul_company_id: row['ieul_企業id'])
         prefecture = Prefecture.find_by(name: row['都道府県'])
         city = prefecture.cities.find_by(name: row['市区町村'])
 
@@ -45,13 +39,13 @@ namespace :import do # rubocop:disable Metrics/BlockLength
   task address: :environment do
     prefecture_csv_path = data_dir.join 'prefectures_master.csv'
 
-    Prefecture.transaction do
+    ActiveRecord::Base.transaction do
       CSV.foreach(prefecture_csv_path, headers: true) do |row|
         Prefecture.find_or_create_by!(id: row['id'], name: row['name'])
       end
     end
 
-    City.transaction do
+    ActiveRecord::Base.transaction do
       city_file = data_dir.join 'cities_master.csv'
       CSV.foreach(city_file, headers: true) do |row|
         prefec = Prefecture.find_by(id: row['prefecture_id'])
