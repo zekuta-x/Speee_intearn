@@ -30,7 +30,7 @@ namespace :import do # rubocop:disable Metrics/BlockLength
           catch_copy: row['キャッチコピー'],
           introduction: row['紹介文']
         }
-        Branch.create!(branch_attrs)
+        Branch.find_or_create_by!(branch_attrs)
       end
     end
   end
