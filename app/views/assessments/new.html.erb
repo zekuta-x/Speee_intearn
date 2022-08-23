@@ -1,4 +1,7 @@
-<%= form_with url: ("/assessments") do |assessment_form| %>
+<%
+=begin%>
+ <%= form_with url: ("/assessments") do |assessment_form| %>
+<div class="mx-auto m-5" style="width: 200px;">
 <%= assessment_form.hidden_field :branch_id, class: "item-text-field" %>
 <div class="">お名前</div>
 <%= assessment_form.text_field :user_name, class: "item-text-field" %>
@@ -27,4 +30,107 @@
 <div class="">築年数</div>
 <%= assessment_form.number_field :property_constructed_year, class: "item-text-field" %>
 <%= assessment_form.submit "査定依頼する", class: "submit-btn" %>
+</div>
+<% end %> 
+<%
+=end%>
+
+<%= form_with url: ("/assessments") do |assessment_form| %>
+<%= assessment_form.hidden_field :branch_id, class: "item-text-field" %>
+
+<form class="row g-3 needs-validation" novalidate>
+  <div class="mb-3">
+    <label for="validationCustom01" class="form-label">お名前</label>
+    <input type="text" class="form-control" id="validationCustom01" aria-describedby="textHelp" required>
+    <div class="invalid-feedback">
+      入力必須項目です
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="Input" class="form-label">ふりがな</label>
+    <input type="text" class="form-control" id="Input">
+  </div>
+  <div class="mb-3">
+    <label for="Inputcall" class="form-label">電話番号</label>
+    <input type="text" class="form-control" id="Inputcall">
+  </div>
+  <div class="mb-3">
+    <label for="InputEmail1" class="form-label">メールアドレス</label>
+    <input type="text" class="form-control" id="InputEmail1">
+  </div>
+  <div class="mb-3">
+    <label for="Input" class="form-label">都道府県</label>
+    <input type="text" class="form-control" id="Input">
+  </div>
+  <div class="mb-3">
+    <label for="Input" class="form-label">市区町村</label>
+    <input type="text" class="form-control" id="Input">
+  </div>
+  <div class="mb-3">
+    <label for="Input" class="form-label">それ以降</label>
+    <input type="text" class="form-control" id="Input">
+  </div>
+  <div class="mb-3">
+    <label for="disabledSelect" class="form-label">物件種別</label>
+      <select id="disabledSelect" class="form-select">
+        <option>物件種別を選択</option>
+        <option>分譲マンション</option>
+        <option>一戸建て</option>
+        <option>土地</option>
+      </select>
+  </div>
+  <div class="mb-3">
+    <label for="Input" class="form-label">占有面積</label>
+    <input type="text" class="form-control" id="Input">
+  </div>
+  <div class="mb-3">
+    <label for="Input" class="form-label">土地面積</label>
+    <input type="text" class="form-control" id="Input">
+  </div>
+  <div class="mb-3">
+    <label for="Input" class="form-label">建物面積</label>
+    <input type="text" class="form-control" id="Input">
+  </div>
+  <div class="mb-3">
+    <label for="disabledSelect" class="form-label">建物面積単位</label>
+      <select id="disabledSelect" class="form-select">
+        <option>平方メートル</option>
+        <option>坪</option>
+      </select>
+  </div>
+  <div class="mb-3">
+    <label for="Input" class="form-label">延床面積</label>
+    <input type="text" class="form-control" id="Input">
+  </div>
+  <div class="mb-3">
+    <label for="disabledSelect" class="form-label">物件種別</label>
+      <select id="disabledSelect" class="form-select">
+        <option>間取りを選択</option>
+        <option>1R(ワンルーム)</option>
+        <option>1K/1DK</option>
+        <option>1LK/1DK</option>
+        <option>2K/2DK</option>
+        <option>2LK/2LDK</option>
+        <option>3K/3DK</option>
+        <option>3LK/3LDK</option>
+        <option>3LK/3LDK</option>
+        <option>4K/4DK</option>
+        <option>4LK/4LDK</option>
+        <option>5K/5DK</option>
+        <option>5LK/5LDK</option>
+        <option>6K/6DK</option>
+        <option>6LK/6LDK以上</option>
+      </select>
+  </div>
+  <div class="mb-3">
+    <label for="Input" class="form-label">築年数</label>
+    <input type="text" class="form-control" id="Input">
+  </div>
+  <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">企業に情報を送信する</label>
+  </div>
+
+  <button type="submit" class="btn btn-primary">査定依頼をする</button>
+</form>
 <% end %>
