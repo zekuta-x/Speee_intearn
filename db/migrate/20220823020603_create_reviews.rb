@@ -27,7 +27,7 @@ class CreateReviews < ActiveRecord::Migration[7.0]
       t.text :concerns_about_the_sale, null: false
       t.text :reason_for_company_selection, null: false
       t.text :reason_for_response_satisfaction, null: false
-      t.text :advice_on_Selling, null: false
+      t.text :advice_on_selling, null: false
       t.text :improvement_of_company
 
       t.timestamps
