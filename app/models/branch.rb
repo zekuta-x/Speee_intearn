@@ -18,4 +18,9 @@ class Branch < ApplicationRecord
   validates :post_code, format: { with: VALID_POST_CODE_REGEX }, allow_blank: true
   validates :phone_number, format: { with: VALID_NUMBER_REGEX }, allow_blank: true
   validates :fax_number, format: { with: VALID_NUMBER_REGEX }, allow_blank: true
+
+  def name_with_company
+    return self.company.name if self.name.blank?
+    "#{self.company.name}　#{self.name}"
+  end
 end

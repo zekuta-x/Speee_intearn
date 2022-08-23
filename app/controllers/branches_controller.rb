@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
 class BranchesController < ApplicationController
-  def show; end
+  def show
+    @branch = Branch.find(params[:id])
+  end
 end
