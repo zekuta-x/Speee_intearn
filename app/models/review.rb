@@ -3,7 +3,7 @@
 class Review < ApplicationRecord
   enum number_of_sales: { first: 0, second: 1, after_the_third_time: 2 }, _prefix: true
   enum reason_for_sale: { resettlement: 0, inheritance: 1, changing_job: 2, divorce: 3, asset_liquidation: 4,
-                      financial_reasons: 5, other: 6 }
+                          financial_reasons: 5, other: 6 }
   enum brokerage_contract: { exclusive_duty: 0, fulltime_mediation: 1, general_mediation: 2, unknown: 3 }
 
   belongs_to :branch
@@ -14,7 +14,8 @@ class Review < ApplicationRecord
   validates :first_name, presence: true
   validates :age, presence: true
   validates :other_address, presence: true
-  validates :response_satisfaction, presence: true, numericality: {greater_than_or_equal_to: 1, less_than_or_equal_to: 5}
+  validates :response_satisfaction, presence: true,
+                                    numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
   validates :number_of_sales, presence: true
   validates :reason_for_sale, presence: true
   validates :sale_consideration_period, presence: true
