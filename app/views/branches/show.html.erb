@@ -1,8 +1,6 @@
 <figure class="text-center">
   <div class="m-5">
-    <h1 class="display-1">
-      <%= @branch.name_with_company %> 
-    </h1>
+    <h1 class="display-1"><%= @branch.name_with_company %></h1>
   </div>
 </figure>
 <br>
@@ -42,7 +40,7 @@
     <dd><%= @branch.regular_holiday %></dd>
   </dl>
 
-  <dl class='col'> 
+  <dl class='col'>
     <div class="mx-auto m-5" style="width: 500px;">
       <%= image_tag @branch.logo_url, height: 300 %>
     </div>
