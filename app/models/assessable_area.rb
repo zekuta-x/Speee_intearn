@@ -4,6 +4,6 @@ class AssessableArea < ApplicationRecord
   belongs_to :branch
   belongs_to :city
 
-  validates :branch, presence: true
-  validates :city, presence: true
+  validates :branch
+  validates :city
 end

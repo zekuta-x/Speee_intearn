@@ -2,17 +2,16 @@
 
 require 'csv'
 
-namespace :import do  # rubocop:disable Metrics/BlockLength
+namespace :import do # rubocop:disable Metrics/BlockLength
   data_dir = Rails.root.join 'lib/tasks/data/'
 
   desc 'csvファイルから店舗データをインポートする e.g. rails import:branches'
-  task branches: :environment do
-
+  task branches: :environment do  # rubocop:disable Metrics/BlockLength
     branch_csv_path = data_dir.join 'branch_master.csv'
 
     Company.transaction do
       CSV.foreach(branch_csv_path, headers: true) do |row|
-        company = Company.find_or_create_by!(name: row['企業名'], ieul_company_id: row['ieul_企業id'])
+        Company.find_or_create_by!(name: row['企業名'], ieul_company_id: row['ieul_企業id'])
       end
     end
 
@@ -44,7 +43,6 @@ namespace :import do  # rubocop:disable Metrics/BlockLength
 
   desc 'csvファイルから都道府県・市区町村データをインポートする e.g. rails import:address'
   task address: :environment do
-
     prefecture_csv_path = data_dir.join 'prefectures_master.csv'
 
     Prefecture.transaction do
