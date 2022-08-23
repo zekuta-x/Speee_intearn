@@ -3,14 +3,14 @@ class CreateReviews < ActiveRecord::Migration[7.0]
     create_table :reviews do |t|
       t.string :family_name, null: false
       t.string :first_name, null: false
-      t.references :branches, null: false, foreign_key: true
+      t.references :branch, null: false, foreign_key: true
       t.integer :age, null: false
-      t.references :cities, null: false, foreign_key: true
+      t.references :city, null: false, foreign_key: true
       t.string :property_address, null: false
       t.integer :response_satisfaction, null: false, default:0
       t.integer :sale_number, null: false, default:0
       t.integer :sale_reason, null: false, default:0
-      t.references :property_types, null: false, foreign_key: true
+      t.references :property_type, null: false, foreign_key: true
       t.date :sale_consideration_period, null: false
       t.date :assessment_request_period, null: false
       t.date :sale_period, null: false
