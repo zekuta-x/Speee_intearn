@@ -19,7 +19,6 @@ class CreateReviews < ActiveRecord::Migration[7.0]
       t.integer :appraisal_price, null: false
       t.integer :sold_price, null: false
       t.integer :contract_price, null: false
-      t.boolean :price_reduction_flag, null: false
       t.integer :price_reduction_time
       t.integer :price_reduction
       t.integer :contract_category, null: false, default:0

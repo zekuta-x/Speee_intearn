@@ -88,7 +88,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_020603) do
     t.integer "age", null: false
     t.bigint "city_id", null: false
     t.string "other_address", null: false
-    t.integer "response_satisfaction", default: 0, null: false
+    t.integer "response_satisfaction", null: false
     t.integer "number_of_sales", default: 0, null: false
     t.integer "reason_for_sale", default: 0, null: false
     t.bigint "property_type_id", null: false
@@ -108,8 +108,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_020603) do
     t.text "concerns_about_the_sale", null: false
     t.text "reason_for_company_selection", null: false
     t.text "reason_for_response_satisfaction", null: false
-    t.text "advice", null: false
-    t.text "improvement"
+    t.text "advice_on_selling", null: false
+    t.text "improvement_of_company"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["branch_id"], name: "index_reviews_on_branch_id"
