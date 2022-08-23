@@ -46,8 +46,8 @@ namespace :import do # rubocop:disable Metrics/BlockLength
     end
 
     ActiveRecord::Base.transaction do
-      city_file = data_dir.join 'cities_master.csv'
-      CSV.foreach(city_file, headers: true) do |row|
+      city_csv_path = data_dir.join 'cities_master.csv'
+      CSV.foreach(city_csv_path, headers: true) do |row|
         prefec = Prefecture.find_by(id: row['prefecture_id'])
         prefec.cities.find_or_create_by!(id: row['id'], name: row['name'])
       end
