@@ -7,7 +7,7 @@ class CreateReviews < ActiveRecord::Migration[7.0]
       t.integer :age, null: false
       t.references :city, null: false, foreign_key: true
       t.string :other_address, null: false
-      t.integer :response_satisfaction, null: false, default:0
+      t.integer :response_satisfaction, null: false
       t.integer :number_of_sales, null: false, default:0
       t.integer :reason_for_sale, null: false, default:0
       t.references :property_type, null: false, foreign_key: true
