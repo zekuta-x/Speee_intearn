@@ -15,4 +15,4 @@ jobs:
       - name: Run rubocop
         run: bundle exec rubocop --parallel
       - name: Run erb-lint
-        run: bundle exec erblint
+        run: bundle exec erblint --lint-all
