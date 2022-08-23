@@ -6,7 +6,7 @@ namespace :import do # rubocop:disable Metrics/BlockLength
   data_dir = Rails.root.join 'lib/tasks/data/'
 
   desc 'csvファイルから店舗データをインポートする e.g. rails import:branches'
-  task branches: :environment do  # rubocop:disable Metrics/BlockLength
+  task branches: :environment do
     branch_csv_path = data_dir.join 'branch_master.csv'
 
     ActiveRecord::Base.transaction do
