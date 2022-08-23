@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  resources :companies, only: %i[show]
+  resources :branches, only: %i[show]
   resources :assessments, only: %i[new create]
 end
