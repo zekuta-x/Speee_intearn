@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_23_054921) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_19_092752) do
   create_table "assessable_areas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "branch_id"
     t.bigint "city_id"
@@ -47,6 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_054921) do
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_branches_on_city_id"
     t.index ["company_id"], name: "index_branches_on_company_id"
+    t.index ["ieul_branch_id"], name: "index_branches_on_ieul_branch_id", unique: true
   end
 
   create_table "cities", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
