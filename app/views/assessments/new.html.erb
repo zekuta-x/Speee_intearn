@@ -40,7 +40,7 @@
     <div class="mb-3">
       <label class="form-label">物件種別</label>
       <%= assessment_form.select :property_type, [%w[分譲マンション 1], %w[一戸建て 2], %w[土地 3]], {},
-                                { class: 'form-select' } %>
+                                 { class: 'form-select' } %>
     </div>
     <div class="mb-3">
       <label class="form-label">占有面積</label>
@@ -57,7 +57,7 @@
     <div class="mb-3">
       <label class="form-label">建物面積単位</label>
       <%= assessment_form.select :property_building_area_unit, [%w[平方メートル 1], %w[坪 2]], {},
-                                { class: 'form-select' } %>
+                                 { class: 'form-select' } %>
     </div>
     <div class="mb-3">
       <label class="form-label">延床面積</label>
@@ -66,8 +66,8 @@
     <div class="mb-3">
       <label class="form-label">間取りを選択</label>
       <%= assessment_form.select :property_room_plan,
-                                room_plans,
-                                {}, { class: 'form-select' } %>
+                                 room_plans,
+                                 {}, { class: 'form-select' } %>
     </div>
     <div class="mb-3">
       <label class="form-label">築年数</label>
