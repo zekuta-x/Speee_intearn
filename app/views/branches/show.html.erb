@@ -21,23 +21,33 @@
     <dt>企業名</dt>
     <dd><%= @branch.company.name %></dd>
 
-    <dt>郵便番号</dt>
-    <dd><%= @branch.post_code %></dd>
+    <% if @branch.post_code.present? %>
+      <dt>郵便番号</dt>
+      <dd><%= @branch.post_code %></dd>
+    <% end %>
 
     <dt>住所</dt>
     <dd><%= @branch.other_address %></dd>
 
-    <dt>電話番号</dt>
-    <dd><%= @branch.phone_number %></dd>
+    <% if @branch.phone_number.present? %>
+      <dt>電話番号</dt>
+      <dd><%= @branch.phone_number %></dd>
+    <% end %>
 
-    <dt>FAX</dt>
-    <dd><%= @branch.fax_number %></dd>
+    <% if @branch.fax_number.present? %>
+      <dt>FAX</dt>
+      <dd><%= @branch.fax_number %></dd>
+    <% end %>
 
-    <dt>営業時間</dt>
-    <dd><%= @branch.open_hours %></dd>
+    <% if @branch.open_hours.present? %>
+      <dt>営業時間</dt>
+      <dd><%= @branch.open_hours %></dd>
+    <% end %>
 
-    <dt>定休日</dt>
-    <dd><%= @branch.regular_holiday %></dd>
+    <% if @branch.regular_holiday.present? %>
+      <dt>定休日</dt>
+      <dd><%= @branch.regular_holiday %></dd>
+    <% end %>
   </dl>
 
   <dl class='col'>
