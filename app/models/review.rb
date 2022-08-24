@@ -3,7 +3,7 @@
 class Review < ApplicationRecord
   enum sex: { male: 0, female: 1, others: 2 }
   enum number_of_sale: { first: 0, second: 1, others: 2 }, _prefix: true
-  enum reason_for_sale: { resettlement: 0, inheritance: 1, changing_job: 2, divorce: 3, asset_liquidation: 4,
+  enum reason_for_sale: { change_of_residence: 0, inheritance: 1, changing_job: 2, divorce: 3, asset_liquidation: 4,
                           financial_reasons: 5, others: 6 }, _prefix: true
   enum contract_category: { exclusive_duty: 0, fulltime_mediation: 1, general_mediation: 2, unknown: 3 }
 
@@ -20,11 +20,11 @@ class Review < ApplicationRecord
                                     numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
   validates :number_of_sale, presence: true
   validates :reason_for_sale, presence: true
-  validates :sale_consideration_period, presence: true
-  validates :assessment_request_period, presence: true
-  validates :sale_period, presence: true
-  validates :sold_out_period, presence: true
-  validates :delivery_period, presence: true
+  validates :sale_consideration_date, presence: true
+  validates :assessment_request_date, presence: true
+  validates :sale_date, presence: true
+  validates :sold_out_date, presence: true
+  validates :delivery_date, presence: true
   validates :appraisal_price, presence: true
   validates :sale_price, presence: true
   validates :contract_price, presence: true

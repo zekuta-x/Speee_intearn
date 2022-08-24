@@ -93,15 +93,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_020603) do
     t.integer "number_of_sale", default: 0, null: false
     t.integer "reason_for_sale", default: 0, null: false
     t.bigint "property_type_id", null: false
-    t.date "sale_consideration_period", null: false
-    t.date "assessment_request_period", null: false
-    t.date "sale_period", null: false
-    t.date "sold_out_period", null: false
-    t.date "delivery_period", null: false
+    t.date "sale_consideration_date", null: false
+    t.date "assessment_request_date", null: false
+    t.date "sale_date", null: false
+    t.date "sold_out_date", null: false
+    t.date "delivery_date", null: false
     t.integer "appraisal_price", null: false
     t.integer "sale_price", null: false
     t.integer "contract_price", null: false
-    t.integer "price_reduction_time"
+    t.integer "price_reduction_date"
     t.integer "price_reduction"
     t.integer "contract_category", default: 0, null: false
     t.string "review_title", null: false

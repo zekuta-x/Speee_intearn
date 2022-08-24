@@ -12,7 +12,7 @@ ja:
         others: '3回以上'
 
       reason_for_sale:
-        resettlement: '住み替え'
+        change_of_residence: '住み替え'
         inheritance: '相続'
         changing_job: '転勤、転職'
         divorce: '離婚'
