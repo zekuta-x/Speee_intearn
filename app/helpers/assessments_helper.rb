@@ -8,7 +8,7 @@ module AssessmentsHelper
       '6K/6DK': 10, '6LK/6LDK以上': 11 }
   end
 
-  def type
+  def property_type
     { '分譲マンション': 1, '一戸建て': 2, '土地': 3 }
   end
 
