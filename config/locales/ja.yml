@@ -4,7 +4,7 @@ ja:
       number_of_sales:
         first: 初めて
         second: 2回め
-        after_the_third_time: 3回以上
+        after_third_time: 3回以上
 
       reason_for_sale:
         resettlement: 住み替え
