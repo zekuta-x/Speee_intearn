@@ -8,7 +8,7 @@ ja:
       number_of_sales:
         first: 初めて
         second: 2回め
-        after_third_time: 3回以上
+        others: 3回以上
 
       reason_for_sale:
         resettlement: 住み替え
@@ -17,7 +17,7 @@ ja:
         divorce: 離婚
         asset_liquidation: 資産整理
         financial_reasons: 金銭的な理由
-        other: その他
+        others: その他
 
       contract_category:
         exclusive_duty: 専属専任媒介契約
