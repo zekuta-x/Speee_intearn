@@ -1,30 +1,79 @@
+<h1 class="text-center">
+  <div class="m-5">
+    <h1 class="display-1">査定依頼フォーム</h1>
+  </div>
+</h1>
+
 <%= form_with url: '/assessments' do |assessment_form| %>
 <%= assessment_form.hidden_field :branch_id, class: 'item-text-field' %>
-<div class="">お名前</div>
-<%= assessment_form.text_field :user_name, class: 'item-text-field' %>
-<div class="">ふりがな</div>
-<%= assessment_form.text_field :user_name_kana, class: 'item-text-field' %>
-<div class="">電話番号</div>
-<%= assessment_form.text_field :user_tel, class: 'item-text-field' %>
-<div class="">メールアドレス</div>
-<%= assessment_form.email_field :user_email, class: 'item-text-field' %>
-<div class="">住所</div>
-<%= assessment_form.text_field :property_address, class: 'item-text-field' %>
-<div class="">物件種別</div>
-<%= assessment_form.number_field :property_type, class: 'item-text-field' %>
-<div class="">専有面積</div>
-<%= assessment_form.number_field :property_exclusive_area, class: 'item-text-field' %>
-<div class="">土地面積</div>
-<%= assessment_form.number_field :property_land_area, class: 'item-text-field' %>
-<div class="">建物面積 </div>
-<%= assessment_form.number_field :property_building_area_float, class: 'item-text-field' %>
-<div class="">建物面積単位</div>
-<%= assessment_form.number_field :property_building_area_unit, class: 'item-text-field' %>
-<div class="">延床面積</div>
-<%= assessment_form.number_field :property_floor_area, class: 'item-text-field' %>
-<div class="">間取り</div>
-<%= assessment_form.number_field :property_room_plan, class: 'item-text-field' %>
-<div class="">築年数</div>
-<%= assessment_form.number_field :property_constructed_year, class: 'item-text-field' %>
-<%= assessment_form.submit '査定依頼する', class: 'submit-btn' %>
+
+<div class="m-5">
+  <form class="row g-3">
+    <div class="mb-3">
+      <label class="form-label">お名前</label>
+      <%= assessment_form.text_field :user_name, class: 'form-control', required: true %>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">ふりがな</label>
+      <%= assessment_form.text_field :user_name_kana, class: 'form-control', required: true %>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">電話番号</label>
+      <%= assessment_form.text_field :user_tel, class: 'form-control', required: true %>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">メールアドレス</label>
+      <%= assessment_form.email_field :user_email, class: 'form-control', required: true %>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">都道府県</label>
+      <%= assessment_form.text_field :property_address_prefectures, class: 'form-control', required: true %>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">市区町村</label>
+      <%= assessment_form.text_field :property_address_municipalities, class: 'form-control', required: true %>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">それ以降</label>
+      <%= assessment_form.text_field :property_address_other, class: 'form-control', required: true %>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">物件種別</label>
+      <%= assessment_form.select :property_type, property_type, {},
+                                 { class: 'form-select' } %>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">占有面積</label>
+      <%= assessment_form.number_field :property_exclusive_area, class: 'form-control', required: true %>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">土地面積</label>
+      <%= assessment_form.number_field :property_land_area, class: 'form-control', required: true %>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">建物面積</label>
+      <%= assessment_form.number_field :property_building_area_float, class: 'form-control', required: true %>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">建物面積単位</label>
+      <%= assessment_form.select :property_building_area_unit, area_unit, {},
+                                 { class: 'form-select' } %>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">延床面積</label>
+      <%= assessment_form.number_field :property_floor_area, class: 'form-control', required: true %>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">間取りを選択</label>
+      <%= assessment_form.select :property_room_plan,
+                                 room_plans,
+                                 {}, { class: 'form-select' } %>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">築年数</label>
+      <%= assessment_form.number_field :property_constructed_year, class: 'form-control', required: true %>
+    </div>
+    <%= assessment_form.submit '査定依頼をする', class: 'btn btn-primary' %>
+  </form>
+</div>
 <% end %>
