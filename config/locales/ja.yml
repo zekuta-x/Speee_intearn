@@ -1,0 +1,5 @@
+ja:
+  assessments:
+    create:
+      ok: '査定依頼が正常に完了しました'
+      error: '査定依頼が正常に完了しませんでした'
