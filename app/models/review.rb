@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Review < ApplicationRecord
+  enum sex: { male: 0, female: 1, others: 2 }
   enum number_of_sale: { first: 0, second: 1, after_third_time: 2 }, _prefix: true
   enum reason_for_sale: { resettlement: 0, inheritance: 1, changing_job: 2, divorce: 3, asset_liquidation: 4,
                           financial_reasons: 5, other: 6 }
@@ -12,6 +13,7 @@ class Review < ApplicationRecord
 
   validates :last_name, presence: true
   validates :first_name, presence: true
+  validates :sex, presence: true
   validates :age, presence: true
   validates :other_address, presence: true
   validates :customer_satisfaction, presence: true,

@@ -1,6 +1,10 @@
 ja:
   enums: 
     review:
+      sex:
+        male: 男性
+        female: 女性
+        others: その他・不明
       number_of_sales:
         first: 初めて
         second: 2回め

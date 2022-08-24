@@ -4,6 +4,7 @@ class CreateReviews < ActiveRecord::Migration[7.0]
       t.string :last_name, null: false
       t.string :first_name, null: false
       t.references :branch, null: false, foreign_key: true
+      t.integer :sex, null: false, default:0
       t.integer :age, null: false
       t.references :city, null: false, foreign_key: true
       t.string :other_address, null: false
