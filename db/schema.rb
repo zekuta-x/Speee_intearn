@@ -85,11 +85,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_020603) do
     t.string "last_name", null: false
     t.string "first_name", null: false
     t.bigint "branch_id", null: false
+    t.integer "sex", default: 0, null: false
     t.integer "age", null: false
     t.bigint "city_id", null: false
     t.string "other_address", null: false
-    t.integer "response_satisfaction", null: false
-    t.integer "number_of_sales", default: 0, null: false
+    t.integer "customer_satisfaction", null: false
+    t.integer "number_of_sale", default: 0, null: false
     t.integer "reason_for_sale", default: 0, null: false
     t.bigint "property_type_id", null: false
     t.date "sale_consideration_period", null: false
@@ -98,18 +99,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_020603) do
     t.date "sold_out_period", null: false
     t.date "delivery_period", null: false
     t.integer "appraisal_price", null: false
-    t.integer "sold_price", null: false
+    t.integer "sale_price", null: false
     t.integer "contract_price", null: false
-    t.boolean "price_reduction_flag", null: false
     t.integer "price_reduction_time"
     t.integer "price_reduction"
     t.integer "contract_category", default: 0, null: false
     t.string "review_title", null: false
-    t.text "concerns_about_the_sale", null: false
+    t.text "concern_about_sale", null: false
     t.text "reason_for_company_selection", null: false
-    t.text "reason_for_response_satisfaction", null: false
-    t.text "advice_on_selling", null: false
-    t.text "improvement_of_company"
+    t.text "reason_for_customer_satisfaction", null: false
+    t.text "advice_on_sale", null: false
+    t.text "improvement_to_company"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["branch_id"], name: "index_reviews_on_branch_id"

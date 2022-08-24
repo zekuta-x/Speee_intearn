@@ -4,7 +4,7 @@ class Review < ApplicationRecord
   enum sex: { male: 0, female: 1, others: 2 }
   enum number_of_sale: { first: 0, second: 1, others: 2 }, _prefix: true
   enum reason_for_sale: { resettlement: 0, inheritance: 1, changing_job: 2, divorce: 3, asset_liquidation: 4,
-                          financial_reasons: 5, others: 6 }
+                          financial_reasons: 5, others: 6 }, _prefix: true
   enum contract_category: { exclusive_duty: 0, fulltime_mediation: 1, general_mediation: 2, unknown: 3 }
 
   belongs_to :branch
