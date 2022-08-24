@@ -1,46 +1,58 @@
 <figure class="text-center">
   <div class="m-5">
-    <h1 class="display-1">企業名　店舗名</h1>
+    <h1 class="display-1"><%= @branch.name_with_company %></h1>
   </div>
 </figure>
 <br>
 <figure>
   <blockquote class="blockquote">
-    <h2>不動産の売却はあんず不動産にお任せください</h2>
+    <h2><%= @branch.catch_copy %></h2>
   </blockquote>
   <figcaption class="blockquote">
     <h3>
-      あんず不動産赤坂支店にお任せください！東京都の不動産売却の実績多数です。
+      <%= @branch.introduction %>
     </h3>
   </figcaption>
 </figure>
 <br>
 
-<dl class="row">
-  <dt class="col-sm-3">企業名</dt>
-  <dd class="col-sm-9">あんず不動産</dd>
+<div class="row">
+  <dl class="col">
+    <dt>企業名</dt>
+    <dd><%= @branch.company.name %></dd>
 
-  <dt class="col-sm-3">郵便番号</dt>
-  <dd class="col-sm-9">000-0000</dd>
+    <% if @branch.post_code.present? %>
+      <dt>郵便番号</dt>
+      <dd><%= @branch.post_code %></dd>
+    <% end %>
 
-  <dt class="col-sm-3">住所</dt>
-  <dd class="col-sm-9">東京都港区六本木1丁目</dd>
+    <dt>住所</dt>
+    <dd><%= @branch.other_address %></dd>
 
-  <dt class="col-sm-3">電話番号</dt>
-  <dd class="col-sm-9">03-0000-0000</dd>
+    <% if @branch.phone_number.present? %>
+      <dt>電話番号</dt>
+      <dd><%= @branch.phone_number %></dd>
+    <% end %>
 
-  <dt class="col-sm-3">FAX</dt>
-  <dd class="col-sm-9">03-0000-0000</dd>
+    <% if @branch.fax_number.present? %>
+      <dt>FAX</dt>
+      <dd><%= @branch.fax_number %></dd>
+    <% end %>
 
-  <dt class="col-sm-3">営業時間</dt>
-  <dd class="col-sm-9">9:00-18:00</dd>
+    <% if @branch.open_hours.present? %>
+      <dt>営業時間</dt>
+      <dd><%= @branch.open_hours %></dd>
+    <% end %>
 
-  <dt class="col-sm-3">定休日</dt>
-  <dd class="col-sm-9">水曜日、GW</dd>
+    <% if @branch.regular_holiday.present? %>
+      <dt>定休日</dt>
+      <dd><%= @branch.regular_holiday %></dd>
+    <% end %>
+  </dl>
 
-  <div class="col">
-    <div class="mx-auto m-5" style="width: 200px;">
-      <%= image_tag '', height: 300 %>
+  <dl class='col'>
+    <div class="mx-auto m-5" style="width: 500px;">
+      <%= image_tag @branch.logo_url, height: 300 %>
     </div>
-  </div>
+  </dl>
 </dl>
