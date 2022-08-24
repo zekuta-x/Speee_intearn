@@ -8,7 +8,7 @@ ja:
 
       number_of_sale:
         first: '初めて'
-        second: '2回め'
+        second: '2回目'
         others: '3回以上'
 
       reason_for_sale:
