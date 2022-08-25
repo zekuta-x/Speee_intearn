@@ -5,6 +5,7 @@
 </h1>
 
 <%= form_with url: '/assessments' do |assessment_form| %>
+<%= assessment_form.hidden_field :branch_id, value: @branch_id %>
 
 <div class="m-5">
   <form class="row g-3">
@@ -30,11 +31,11 @@
     </div>
     <div class="mb-3">
       <label class="form-label">市区町村</label>
-      <%= assessment_form.text_field :property_address_municipalities, class: 'form-control', required: true %>
+      <%= assessment_form.text_field :property_address_cities, class: 'form-control', required: true %>
     </div>
     <div class="mb-3">
       <label class="form-label">それ以降</label>
-      <%= assessment_form.text_field :property_address_other, class: 'form-control', required: true %>
+      <%= assessment_form.text_field :property_other_address, class: 'form-control', required: true %>
     </div>
     <div class="mb-3">
       <label class="form-label">物件種別</label>

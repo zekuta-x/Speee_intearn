@@ -8,4 +8,10 @@ class City < ApplicationRecord
   has_many :reviews, dependent: :restrict_with_error
 
   validates :name, presence: true
+
+  def name_with_prefecture
+    return prefecture.name if name.blank?
+
+    "#{prefecture.name}#{name}"
+  end
 end
