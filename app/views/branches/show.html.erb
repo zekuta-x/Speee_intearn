@@ -17,7 +17,7 @@
 <br>
 
 <div div class="d-grid gap-2 mx-auto">
-  <%= button_to '査定依頼をする', { controller: 'assessments', action: 'new' },
+  <%= button_to '査定依頼をする', { controller: root_assesment, action: root_action },
                 { method: :get, class: 'btn btn-primary', params: { branch_id: @branch.id } } %>
 </div>
 

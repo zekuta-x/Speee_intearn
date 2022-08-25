@@ -15,4 +15,12 @@ module AssessmentsHelper
   def area_unit
     { '平方メートル': 1, '坪': 2 }
   end
+
+  def root_assesment
+    'assessments'
+  end
+
+  def root_action
+    'new'
+  end
 end
