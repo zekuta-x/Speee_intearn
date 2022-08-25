@@ -45,23 +45,23 @@
       <tbody>
         <tr>
           <th scope="row">売却検討</th>
-          <td><%= @review.sale_consideration_date.strftime('%Y年%m月') %></td>
+          <td><%= formatted @review.sale_consideration_date %></td>
           <td>-</td>
         </tr>
         <tr>
           <th scope="row">査定依頼</th>
-          <td><%= @review.assessment_request_date.strftime('%Y年%m月') %></td>
+          <td><%= formatted @review.assessment_request_date %></td>
           <td><%= @review.appraisal_price %></td>
         </tr>
         <tr>
           <th scope="row">売り出し</th>
-          <td><%= @review.sale_date.strftime('%Y年%m月') %></td>
+          <td><%= formatted @review.sale_date %></td>
           <td><%= @review.sale_price %></td>
         </tr>
         <tr>
           <th scope="row">売却</th>
           <td>
-            <%= @review.sold_out_date.strftime('%Y年%m月') %>
+            <%= formatted @review.sold_out_date %>
             <% if @review.price_reduction_date.present? %>
               <br>
               <%= @review.price_reduction_date %>ヶ月後に値下げ
@@ -77,7 +77,7 @@
         </tr>
         <tr>
           <th scope="row">引き渡し</th>
-          <td><%= @review.delivery_date.strftime('%Y年%m月') %></td>
+          <td><%= formatted @review.delivery_date %></td>
           <td>-</td>
         </tr>
       </tbody>
