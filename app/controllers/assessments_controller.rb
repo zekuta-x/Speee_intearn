@@ -10,7 +10,7 @@ class AssessmentsController < ApplicationController
     @host = request.host
     @branch_id = 1
     property_prefecture = Prefecture.find_by(name: params.require(:property_address_prefectures))
-    @property_city = City.find_by(name: params.require(:property_address_municipalities),
+    @property_city = property_prefecture.cities.find_by(name: params.require(:property_address_municipalities),
                                   prefecture_id: property_prefecture.id)
     @property_address = property_prefecture.name + @property_city.name + params.require(:property_address_other)
 
