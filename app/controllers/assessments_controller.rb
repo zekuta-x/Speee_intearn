@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
 class AssessmentsController < ApplicationController
-  def new; end
+  def new
+    @branch_id = params[:branch_id]
+  end
 
   def show; end
 
   def create
     # 以降変更
     @host = request.host
-    @branch_id = 1
     @property_city = 1
 
     post_api
