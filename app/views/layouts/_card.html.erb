@@ -1,11 +1,14 @@
-<div class="card" style="width: 95%;">
-  <div class="card-body">
-    <h5 class="card-title">スムーズな取引ができました: ★５</h5>
-    <p class="card-text">ほとんど担当者の方がやってくださりとても楽でした。何かあるときは必ず電話で確認をとってくれてとても信用できました。迅速な対応がとても良かったです。</p>
-    <br>
-    <span class="card-text">成約価格 1500万円</span>
-    <span class="card-text">(千葉県市川市・2019年2月に売却)</span>
-    <br><br>
-    <a href="#" class="btn btn-primary">この口コミを詳しく見る</a>
+<% @review.each do |review| %>
+  <div class="card" style="width: 95%;">
+    <div class="card-body">
+      <h5 class="card-title"><%= review.review_title %>: ★<%= review.customer_satisfaction %></h5>
+      <p class="card-text"><%= review.reason_for_customer_satisfaction %></p>
+      <br>
+      <span class="card-text">成約価格 <%= review.contract_price %> 円</span>
+      <span class="card-text">(千葉県市川市・<%= review.sold_out_date %> に売却)</span>
+      <br><br>
+      <a href="#" class="btn btn-primary">この口コミを詳しく見る</a>
+    </div>
   </div>
-</div>
+  <br>
+<% end %>
