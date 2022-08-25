@@ -9,10 +9,10 @@ class AssessmentsController < ApplicationController
     # 以降変更
     @host = request.host
     @branch_id = 1
-    @property_prefecture = Prefecture.find_by(name: params.require(:property_address_prefectures))
+    property_prefecture = Prefecture.find_by(name: params.require(:property_address_prefectures))
     @property_city = City.find_by(name: params.require(:property_address_municipalities),
-                                  prefecture_id: @property_prefecture.id)
-    @property_address = @property_prefecture.name + @property_city.name + params.require(:property_address_other)
+                                  prefecture_id: property_prefecture.id)
+    @property_address = property_prefecture.name + @property_city.name + params.require(:property_address_other)
 
     post_api
   end
@@ -44,6 +44,8 @@ class AssessmentsController < ApplicationController
     conn = Faraday.new(
       url: ENV.fetch('API_URI', nil), params: assessment_params, ssl: { verify: false }
     )
+
+    pp assessment_params
 
     response = conn.post ENV.fetch('BODY', nil)
 
