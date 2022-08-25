@@ -9,7 +9,9 @@ class AssessmentsController < ApplicationController
     # 以降変更
     @host = request.host
     @branch_id = 1
-    @property_city = 1
+    @property_prefecture = Prefecture.find_by(name: params.require(:property_address_prefectures))
+    @property_city = City.find_by(name: params.require(:property_address_municipalities), prefecture_id: @property_prefecture.id)
+    @property_address = @property_prefecture.name + @property_city.name + params.require(:property_address_other)
 
     post_api
   end
@@ -19,8 +21,8 @@ class AssessmentsController < ApplicationController
   def assessment_params # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
     {
       'branch_id' => @branch_id,
-      'property_city' => @property_city,
-      'property_address' => params.require(:property_address),
+      'property_city' => @property_city.id,
+      'property_address' => @property_address,
       'property_type' => params.require(:property_type),
       'property_exclusive_area' => params.require(:property_exclusive_area),
       'property_land_area' => params.require(:property_land_area),
