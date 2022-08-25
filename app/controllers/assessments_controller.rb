@@ -44,8 +44,6 @@ class AssessmentsController < ApplicationController
       url: ENV.fetch('API_URI', nil), params: assessment_params, ssl: { verify: false }
     )
 
-    pp assessment_params
-
     response = conn.post ENV.fetch('BODY', nil)
 
     if response.status == 200
