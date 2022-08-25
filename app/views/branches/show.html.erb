@@ -16,13 +16,11 @@
 </figure>
 <br>
 
-<div class="d-grid gap-2 col-6 mx-auto">
-    <button class="btn btn-primary" type="button">査定依頼をする</button>
+<div div class="d-grid gap-2 mx-auto">
+  <%= button_to "査定依頼をする", {controller: 'assessments', action: 'new'}, {method: :get, class: "btn btn-primary", params: {branch_id: @branch.id}} %>
 </div>
 
-<div><%= @branch.id %></div>
-
-<div class="row">
+<div class="m-5 row">
   <dl class="col">
     <dt>企業名</dt>
     <dd><%= @branch.company.name %></dd>
@@ -62,5 +60,3 @@
     </div>
   </dl>
 </dl>
-
-
