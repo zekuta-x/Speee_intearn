@@ -5,6 +5,7 @@ class City < ApplicationRecord
   has_many :assessable_areas, dependent: :restrict_with_error
   has_many :assessable_branches, through: :assessable_areas, source: :branch
   has_many :branches, dependent: :restrict_with_error
+  has_many :reviews, dependent: :restrict_with_error
 
   validates :name, presence: true
 

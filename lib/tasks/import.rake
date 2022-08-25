@@ -2,7 +2,8 @@
 
 require 'csv'
 
-namespace :import do # rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength
+namespace :import do
   data_dir = Rails.root.join 'lib/tasks/data/'
 
   desc 'csvファイルから店舗データをインポートする e.g. rails import:branches'
@@ -53,4 +54,65 @@ namespace :import do # rubocop:disable Metrics/BlockLength
       end
     end
   end
+
+  desc 'csvファイルから口コミデータをインポートする e.g. rails import:reviews'
+  task reviews: :environment do
+    review_csv_path = data_dir.join 'reviews_master.csv'
+
+    ActiveRecord::Base.transaction do
+      CSV.foreach(review_csv_path, headers: true) do |row|
+        last_name, first_name = row['名前'].split
+        sex = Review.sexes_i18n.invert[row['性別']].to_sym
+        number_of_sale = Review.number_of_sales_i18n.invert[row['売却回数']].to_sym
+        branch = Branch.find_by(ieul_branch_id: row['ieul_店舗id'])
+        prefecture = Prefecture.find_by(name: row['都道府県'])
+        city = prefecture.cities.find_by(name: row['市区町村'])
+        property_type = PropertyType.find_or_create_by!(name: row['物件種別'])
+
+        review_attrs = {
+          last_name:,
+          first_name:,
+          branch:,
+          sex:,
+          age: row['年齢'],
+          city:,
+          other_address: row['住所全部'],
+          customer_satisfaction: row['不動産会社の対応満足度'],
+          number_of_sale:,
+          reason_for_sale: row['売却理由'].to_i,
+          property_type:,
+          sale_consideration_date: row['売却検討時期'].to_date,
+          assessment_request_date: row['査定依頼時期'].to_date,
+          sale_date: row['売出時期'].to_date,
+          sold_out_date: row['売却時期'].to_date,
+          delivery_date: row['引渡時期'].to_date,
+          appraisal_price: row['査定価格'],
+          sale_price: row['販売価格'],
+          contract_price: row['成約価格'],
+          price_reduction_date: row['売り出してから何ヶ月後に値下げしたか'],
+          price_reduction: row['値下げ価格'],
+          contract_category: row['媒介契約の形態'].to_i,
+          review_title: row['見出し'],
+          concern_about_sale: row['売却時に不安だったこと'],
+          reason_for_company_selection: row['この会社に決めた理由'],
+          reason_for_customer_satisfaction: row['不動産会社の対応満足度の理由'],
+          advice_on_sale: row['今後売却する人へのアドバイス'],
+          improvement_to_company: row['不動産会社に改善してほしい点']
+        }
+        Review.find_or_create_by!(review_attrs)
+      end
+    end
+  end
+
+  desc 'csvファイルから物件種別データをインポートする e.g. rails import:property_types'
+  task property_types: :environment do
+    property_types_csv_path = data_dir.join 'property_types_master.csv'
+
+    ActiveRecord::Base.transaction do
+      CSV.foreach(property_types_csv_path, headers: true) do |row|
+        PropertyType.find_or_create_by!(name: row['name'])
+      end
+    end
+  end
 end
+# rubocop:enable Metrics/BlockLength

@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 
 class AssessmentsController < ApplicationController
-  def new; end
+  def new
+    @branch_id = params[:branch_id]
+  end
 
   def show; end
 
   def create
     # 以降変更
     @host = request.host
-    @branch_id = 1
     property_prefecture = Prefecture.find_by(name: params.require(:property_address_prefectures))
     @property_city = property_prefecture.cities.find_by(name: params.require(:property_address_cities))
     @property_address = @property_city.name_with_prefecture + params.require(:property_other_address)

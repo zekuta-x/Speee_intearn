@@ -1,5 +1,32 @@
 ja:
+  enums: 
+    review:
+      sex:
+        male: '男性'
+        female: '女性'
+        others: 'その他・不明'
+
+      number_of_sale:
+        first: '初めて'
+        second: '2回目'
+        others: '3回以上'
+
+      reason_for_sale:
+        changing_residence: '住み替え'
+        inheritance: '相続'
+        changing_job: '転勤、転職'
+        divorce: '離婚'
+        asset_liquidation: '資産整理'
+        financial_reasons: '金銭的な理由'
+        others: 'その他'
+
+      contract_category:
+        exclusive_duty: '専属専任媒介契約'
+        fulltime_mediation: '専任媒介契約'
+        general_mediation: '一般媒介契約'
+        unknown: 'わからない'
+        
   assessments:
-    create:
-      ok: '査定依頼が正常に完了しました'
-      error: '査定依頼が正常に完了しませんでした'
+      create:
+        ok: '査定依頼が正常に完了しました'
+        error: '査定依頼が正常に完了しませんでした'

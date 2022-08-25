@@ -82,6 +82,57 @@ docker-compose run --rm app bundle exec rubocop -a
 docker-compose run --rm app bundle exec rubocop -A
 ```
 
+## データのインポート
+
+### 前準備
+
+1. DB のコンテナを立ち上げる
+
+    ```
+    docker compose up
+    ```
+
+2. マスタデータが`lib/tasks/data/`配下にあるか確認する
+
+    ```
+    lib/tasks
+    ├── data
+    │   ├── branch_master.csv
+    │   ├── cities_master.csv
+    │   ├── prefectures_master.csv
+    │   ├── property_types_master.csv
+    │   └── reviews_master.csv
+    └── import.rake
+    ```
+
+### インポート
+
+-   都道府県・市区町村
+    ```
+    rails import:address
+    ```
+-   店舗
+    ```
+    rails import:branches
+    ```
+-   物件種別
+    ```
+    rails import:property_types
+    ```
+    > 物件種別は口コミをインポートする際に同時に作成されるので必須ではない
+-   口コミ
+    ```
+    rails import:reviews
+    ```
+
+> 環境を指定する場合は`RAILS_ENV=test`のようにオプションをつける
+
+### 削除
+
+```
+rails db:migrate:reset
+```
+
 ## サーバへのデプロイ
 
 0. (初回のみ) `aws ecs run-task --cluster internship-aug2022-1 --task-definition internship-aug2022-1-db-create --launch-type FARGATE --network-configuration '{"awsvpcConfiguration":{"subnets":["subnet-0334f01a7f2e84910","subnet-06e60f8f517606654","subnet-0df45f1bdece2446d"],"securityGroups": ["sg-04d49093688ad6e41"],"assignPublicIp":"ENABLED"}}' --count 1` で `rails db:create` を本番環境の DB に適用し、この Rails アプリが使用する MySQL のデータベースを作成する。
