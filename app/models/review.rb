@@ -32,6 +32,6 @@ class Review < ApplicationRecord
   validates :review_title, presence: true
   validates :concern_about_sale, presence: true
   validates :reason_for_company_selection, presence: true
-  validates :reason_for_response_satisfaction, presence: true
+  validates :reason_for_customer_satisfaction, presence: true
   validates :advice_on_sale, presence: true
 end
