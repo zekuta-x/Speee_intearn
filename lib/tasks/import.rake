@@ -2,7 +2,8 @@
 
 require 'csv'
 
-namespace :import do # rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength
+namespace :import do
   data_dir = Rails.root.join 'lib/tasks/data/'
 
   desc 'csvファイルから店舗データをインポートする e.g. rails import:branches'
@@ -55,11 +56,11 @@ namespace :import do # rubocop:disable Metrics/BlockLength
   end
 
   desc 'csvファイルから口コミデータをインポートする e.g. rails import:reviews'
-  task reviews: :environment do # rubocop:disable Metrics/BlockLength
+  task reviews: :environment do
     review_csv_path = data_dir.join 'reviews_master.csv'
 
-    ActiveRecord::Base.transaction do # rubocop:disable Metrics/BlockLength
-      CSV.foreach(review_csv_path, headers: true) do |row| # rubocop:disable Metrics/BlockLength
+    ActiveRecord::Base.transaction do
+      CSV.foreach(review_csv_path, headers: true) do |row|
         last_name, first_name = row['名前'].split
         sex = Review.sexes_i18n.invert[row['性別']].to_sym
         number_of_sale = Review.number_of_sales_i18n.invert[row['売却回数']].to_sym
@@ -114,3 +115,4 @@ namespace :import do # rubocop:disable Metrics/BlockLength
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
