@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class AssessmentsController < ApplicationController
+
   def new
     @branch_id = params[:branch_id]
   end
@@ -13,7 +14,6 @@ class AssessmentsController < ApplicationController
     @property_city = 1
 
     post_api
-    pp assessment_params
   end
 
   private

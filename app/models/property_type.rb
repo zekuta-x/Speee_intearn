@@ -2,6 +2,7 @@
 
 class PropertyType < ApplicationRecord
   has_many :branch_property_types, dependent: :restrict_with_error
+  has_many :reviews, dependent: :restrict_with_error
 
   validates :name, presence: true, uniqueness: true
 end
