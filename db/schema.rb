@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_23_020603) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_25_040654) do
   create_table "assessable_areas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "branch_id"
     t.bigint "city_id"
@@ -91,7 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_020603) do
     t.string "other_address", null: false
     t.integer "customer_satisfaction", null: false
     t.integer "number_of_sale", default: 0, null: false
-    t.integer "reason_for_sale", default: 0, null: false
+    t.integer "reason_for_sale", default: 1, null: false
     t.bigint "property_type_id", null: false
     t.date "sale_consideration_date", null: false
     t.date "assessment_request_date", null: false
@@ -103,7 +103,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_23_020603) do
     t.integer "contract_price", null: false
     t.integer "price_reduction_date"
     t.integer "price_reduction"
-    t.integer "contract_category", default: 0, null: false
+    t.integer "contract_category", default: 1, null: false
     t.string "review_title", null: false
     t.text "concern_about_sale", null: false
     t.text "reason_for_company_selection", null: false
