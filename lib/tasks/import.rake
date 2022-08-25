@@ -53,4 +53,15 @@ namespace :import do # rubocop:disable Metrics/BlockLength
       end
     end
   end
+
+  desc 'csvファイルから物件種別データをインポートする e.g. rails import:property_types'
+  task property_types: :environment do
+    property_types_csv_path = data_dir.join 'property_types_master.csv'
+
+    ActiveRecord::Base.transaction do
+      CSV.foreach(property_types_csv_path, headers: true) do |row|
+        PropertyType.find_or_create_by!(name: row['name'])
+      end
+    end
+  end
 end
