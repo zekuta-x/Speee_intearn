@@ -61,6 +61,8 @@ namespace :import do # rubocop:disable Metrics/BlockLength
     ActiveRecord::Base.transaction do # rubocop:disable Metrics/BlockLength
       CSV.foreach(review_csv_path, headers: true) do |row| # rubocop:disable Metrics/BlockLength
         last_name, first_name = row['名前'].split
+        sex = Review.sexes_i18n.invert[row['性別']].to_sym
+        number_of_sale = Review.number_of_sales_i18n.invert[row['売却回数']].to_sym
         branch = Branch.find_by(ieul_branch_id: row['ieul_店舗id'])
         prefecture = Prefecture.find_by(name: row['都道府県'])
         city = prefecture.cities.find_by(name: row['市区町村'])
@@ -70,12 +72,12 @@ namespace :import do # rubocop:disable Metrics/BlockLength
           last_name:,
           first_name:,
           branch:,
-          sex: Review.sexes_i18n.invert[row['性別']],
+          sex:,
           age: row['年齢'],
           city:,
           other_address: row['住所全部'],
           customer_satisfaction: row['不動産会社の対応満足度'],
-          number_of_sale: Review.number_of_sales_i18n.invert[row['売却回数']].to_sym,
+          number_of_sale:,
           reason_for_sale: row['売却理由'].to_i,
           property_type:,
           sale_consideration_date: row['売却検討時期'].to_date,
