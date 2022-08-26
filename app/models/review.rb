@@ -34,4 +34,8 @@ class Review < ApplicationRecord
   validates :reason_for_company_selection, presence: true
   validates :reason_for_customer_satisfaction, presence: true
   validates :advice_on_sale, presence: true
+
+  def address
+    "#{city.name_with_prefecture}#{other_address}"
+  end
 end

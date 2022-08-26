@@ -8,7 +8,7 @@
   <dt class="col-2">売却した不動産会社名</dt>
   <dd class="col-10"><%= @review.branch.name_with_company %></dd>
   <dt class="col-2">住所</dt>
-  <dd class="col-10"><%= @review.city.prefecture.name + @review.city.name %></dd>
+  <dd class="col-10"><%= @review.city.name_with_prefecture %></dd>
   <dt class="col-2">売却の理由</dt>
   <dd class="col-10"><%= @review.reason_for_sale_i18n %>のため</dd>
   <dt class="col-2">売却経験</dt>
