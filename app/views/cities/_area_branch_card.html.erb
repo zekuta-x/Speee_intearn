@@ -1,0 +1,26 @@
+<% city.assessable_branches.each do |branch| %>
+  <div class="card" style="width: 95%;">
+    <div class="card-body">
+      <div class="row">
+        <dl class="col">
+          <dt><%= branch.name_with_company %></dt>
+
+          <br><br><br>
+
+          <div>会社の決め手</div>
+        </dl>
+
+        <dl class='col' style="width: 70%;">
+          <div>営業時間：<%= branch.open_hours %></div>
+          <div>定休日：<%= branch.regular_holiday %></div>
+          <div>住所：<%= branch.other_address %></div>
+
+          <br>
+
+          <div><%= branch.reviews.last.reason_for_company_selection %></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <br>
+<% end %>
