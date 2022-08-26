@@ -1,11 +1,11 @@
 
 <ul class="list-group">
     <li class="list-group-item active" aria-current="true"><%= @city.prefecture.name %></li>
-        <body style='display: flex; flex-wrap: wrap'>
-        <% city.prefecture.cities.each do |cities| %>
-            <%= link_to city_path(cities.id), class: 'link-primary' do %>
-            <div><%= cities.name %></div>
-             <% end %>
-        <% end %>
-    </body>
-</ui>
+        <div class="d-flex flex-wrap">
+            <% city.prefecture.cities.each do |cities| %>
+                <%= link_to city_path(cities.id), class: 'link-primary' do %>
+                    <div class="p-2 bd-highlight"><%= cities.name %></div>
+                <% end %>
+            <% end %>
+        </div>
+</ul>
