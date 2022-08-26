@@ -5,7 +5,7 @@
       <p class="card-text"><%= review.reason_for_customer_satisfaction %></p>
       <br>
       <span class="card-text">成約価格 <%= formatted_with_unit review.contract_price %></span>
-      <span class="card-text">(<%= review.city.name_with_prefecture %>・<%= review.sold_out_date %>に売却)</span>
+      <span class="card-text">(<%= review.city.name_with_prefecture %>・<%= formatted review.sold_out_date %>に売却)</span>
     <% end %>
   </div>
   <br>
