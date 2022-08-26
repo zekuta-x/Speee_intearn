@@ -35,11 +35,11 @@
     </div>
     <div class="mb-3">
       <label class="form-label">都道府県</label>
-      <%= assessment_form.text_field :property_address_prefectures, class: 'form-control', required: true %>
+      <%= assessment_form.text_field :property_prefectures, class: 'form-control', required: true %>
     </div>
     <div class="mb-3">
       <label class="form-label">市区町村</label>
-      <%= assessment_form.text_field :property_address_cities, class: 'form-control', required: true %>
+      <%= assessment_form.text_field :property_cities, class: 'form-control', required: true %>
     </div>
     <div class="mb-3">
       <label class="form-label">それ以降</label>
@@ -47,8 +47,9 @@
     </div>
     <div class="mb-3">
       <label class="form-label">物件種別</label>
-      <%= assessment_form.select :property_type, property_type, {},
-                                 { class: 'form-select' } %>
+      <%= select :status,:name, Revie.contract_category.keys.to_a %>
+      <%= select :status,:name, Revie.contract_category.values.to_a %>
+
     </div>
     <div class="mb-3">
       <label class="form-label">占有面積</label>
@@ -60,7 +61,7 @@
     </div>
     <div class="mb-3">
       <label class="form-label">建物面積</label>
-      <%= assessment_form.number_field :property_building_area_float, class: 'form-control', required: true %>
+      <%= assessment_form.number_field :property_building_area, class: 'form-control', required: true %>
     </div>
     <div class="mb-3">
       <label class="form-label">建物面積単位</label>

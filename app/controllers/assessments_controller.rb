@@ -26,7 +26,7 @@ class AssessmentsController < ApplicationController
       'property_type' => params.require(:property_type),
       'property_exclusive_area' => params.require(:property_exclusive_area),
       'property_land_area' => params.require(:property_land_area),
-      'property_building_area_float' => params.require(:property_building_area_float),
+      'property_building_area' => params.require(:property_building_area),
       'property_building_area_unit' => params.require(:property_building_area_unit),
       'property_floor_area' => params.require(:property_floor_area),
       'url_param' => @host,
