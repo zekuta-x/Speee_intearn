@@ -39,3 +39,4 @@ class AssessmentForm
   validates :user_first_name_kana, length: { maximum: 31}, presence: true
   validates :user_last_name_kana, length: {maximum: 31}, presence: true
   validates :user_tel, format: { with: VALID_NUMBER_REGEX }, presence: true
+end
