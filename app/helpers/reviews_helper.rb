@@ -5,7 +5,7 @@ module ReviewsHelper
     date.strftime('%Y年%m月')
   end
 
-  def formatted_with_unit(value)
-    number_to_currency(value / (10**4).round, locale: 'ja')
+  def formatted_with_unit(price)
+    number_to_currency(price / (10**4).round, locale: 'ja')
   end
 end
