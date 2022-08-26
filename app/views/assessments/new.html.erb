@@ -13,76 +13,75 @@
 <form class="row g-3">
   <div class="mb-3">
       <div class="mb-3">
-        <%= f.label :user_last_name %>
-        <%= f.text_field :user_last_name %>
+        <%= f.label :user_last_name, 'お名前(姓)' %>
+        <%= f.text_field :user_last_name, class: 'form-control' %>
       </div>
       <div class="mb-3">
-        <%= f.label :user_first_name %>
-        <%= f.text_field :user_first_name %>
+        <%= f.label :user_first_name, 'お名前(名)'%>
+        <%= f.text_field :user_first_name, class: 'form-control' %>
       </div>
       <div class="mb-3">
-        <%= f.label :user_last_name_kana %>
-        <%= f.text_field :user_last_name_kana %>
+        <%= f.label :user_last_name_kana, 'ふりがな(姓)' %>
+        <%= f.text_field :user_last_name_kana, class: 'form-control' %>
       </div>
       <div class="mb-3">
-        <%= f.label :user_first_name_kana %>
-        <%= f.text_field :user_first_name_kana %>
+        <%= f.label :user_first_name_kana, 'ふりがな(名)' %>
+        <%= f.text_field :user_first_name_kana, class: 'form-control' %>
       </div>
       <div class="mb-3">
-        <%= f.label :user_tel %>
-        <%= f.text_field :user_tel %>
+        <%= f.label :user_tel, '電話番号' %>
+        <%= f.text_field :user_tel, class: 'form-control' %>
       </div>
       <div class="mb-3">
-        <%= f.label :user_email %>
-        <%= f.email_field :user_email %>
+        <%= f.label :user_email, 'メールアドレス' %>
+        <%= f.email_field :user_email, class: 'form-control' %>
       </div>
       <div class="mb-3">
-        <%= f.label :property_prefecture %>
-        <%= f.text_field :property_prefecture %>
+        <%= f.label :property_prefecture, '都道府県' %>
+        <%= f.text_field :property_prefecture, class: 'form-control' %>
       </div>
       <div class="mb-3">
-        <%= f.label :property_city %>
-        <%= f.text_field :property_city %>
+        <%= f.label :property_city, '市区町村' %>
+        <%= f.text_field :property_city, class: 'form-control' %>
       </div>
       <div class="mb-3">
-        <%= f.label :property_other_address %>
-        <%= f.text_field :property_other_address %>
+        <%= f.label :property_other_address, 'それ以降' %>
+        <%= f.text_field :property_other_address, class: 'form-control' %>
       </div>
       <div class="mb-3">
-        <%= f.label :property_type %>
-        <%= f.select :property_type, AssessmentForm.property_type.values_text.to_a %>
+        <%= f.label :property_type, '物件種別' %>
+        <%= f.select :property_type, AssessmentForm.property_type.values.map(&:text), {}, class: 'form-select' %>
       </div>
       <div class="mb-3">
-        <%= f.label :property_exclusive_area %>
-        <%= f.number_field :property_exclusive_area %>
+        <%= f.label :property_exclusive_area, '占有面積' %>
+        <%= f.number_field :property_exclusive_area, class: 'form-control' %>
       </div>
       <div class="mb-3">
-        <%= f.label :property_land_area %>
-        <%= f.number_field :property_land_area %>
+        <%= f.label :property_land_area, '土地面積' %>
+        <%= f.number_field :property_land_area, class: 'form-control' %>
       </div>
       <div class="mb-3">
-        <%= f.label :property_building_area %>
-        <%= f.number_field :property_building_area %>
+        <%= f.label :property_building_area, '建物面積' %>
+        <%= f.number_field :property_building_area, class: 'form-control' %>
       </div>
       <div class="mb-3">
-        <%= f.label :property_building_area_unit %>
-        <%= f.select :property_building_area_unit, AssessmentForm.property_building_area_unit_text.values.to_a %>
+        <%= f.label :property_building_area_unit, '建物面積単位' %>
+        <%= f.select :property_building_area_unit, AssessmentForm.property_building_area_unit.values.map(&:text), {}, class: 'form-select' %>
       </div>
       <div class="mb-3">
-        <%= f.label :property_floor_area %>
-        <%= f.number_field :property_floor_area %>
+        <%= f.label :property_floor_area, '延床面積' %>
+        <%= f.number_field :property_floor_area, class: 'form-control' %>
       </div>
       <div class="mb-3">
-        <%= f.label :property_room_plan %>
-        <%= f.select :property_room_plan, AssessmentForm.property_room_plan_text.values.to_a %>
+        <%= f.label :property_room_plan, '間取りを選択' %>
+        <%= f.select :property_room_plan, AssessmentForm.property_room_plan.values.map(&:text), {}, class: 'form-select' %>
       </div>
       <div class="mb-3">
-        <%= f.label :property_constructed_year %>
-        <%= f.number_field :property_constructed_year %>
+        <%= f.label :property_constructed_year, '築年数' %>
+        <%= f.number_field :property_constructed_year, class: 'form-control' %>
       </div>
 
       <%= f.submit '査定依頼をする', class: 'btn btn-primary' %>
   </div>
 </form>
 <% end %>
-

@@ -27,11 +27,11 @@ ja:
         unknown: 'わからない'
   
   enumerize:
-    assessment:
+    defaults:
       property_room_plan:
         r1: '1R(ワンルーム)'
         k1_dk1: '1K/1DK'
-        lk1_ldk2: '1LK/1LDK'
+        lk2_ldk2: '1LK/1LDK'
         k2_dk2: '2K/2DK'
         ld2_ldk2: '2LK/2LDK'
         k3_dk3: '3K/3DK'
