@@ -6,6 +6,6 @@ module ReviewsHelper
   end
 
   def formatted_with_unit(value)
-    number_to_currency(value/(10**4).round, locale: 'ja')
+    number_to_currency(value / (10**4).round, locale: 'ja')
   end
 end
