@@ -50,7 +50,7 @@
       </div>
       <div class="mb-3">
         <%= f.label :property_type %>
-        <%= f.select :property_type, AssessmentForm.property_type.values.to_a %>
+        <%= f.select :property_type, AssessmentForm.property_type.values_text.to_a %>
       </div>
       <div class="mb-3">
         <%= f.label :property_exclusive_area %>
@@ -66,7 +66,7 @@
       </div>
       <div class="mb-3">
         <%= f.label :property_building_area_unit %>
-        <%= f.select :property_building_area_unit, AssessmentForm.property_building_area_unit.values.to_a %>
+        <%= f.select :property_building_area_unit, AssessmentForm.property_building_area_unit_text.values.to_a %>
       </div>
       <div class="mb-3">
         <%= f.label :property_floor_area %>
@@ -74,7 +74,7 @@
       </div>
       <div class="mb-3">
         <%= f.label :property_room_plan %>
-        <%= f.select :property_room_plan, AssessmentForm.property_room_plan.values.to_a %>
+        <%= f.select :property_room_plan, AssessmentForm.property_room_plan_text.values.to_a %>
       </div>
       <div class="mb-3">
         <%= f.label :property_constructed_year %>
