@@ -1,23 +1,26 @@
-<div class="card" style="width: 95%;">
-  <div class="card-body">
-    <div class="row">
-      <dl class="col">
-        <dt>Speee10不動産</dt>
-        <dd>★4.5</dd>
+<% @city.assessable_branches.each do |branch| %>
+  <div class="card" style="width: 95%;">
+    <div class="card-body">
+      <div class="row">
+        <dl class="col">
+          <dt><%= branch.name_with_company %></dt>
 
-        <br><br>
+          <br><br><br>
 
-        <div>会社の決め手</div>
-      </dl>
+          <div>会社の決め手</div>
+        </dl>
 
-    <dl class='col' style="width: 70%;">
-      <div>営業時間：9:00 - 18:00</div>
-      <div>定休日：火曜日</div>
-      <div>住所：東京都港区六本木２丁目</div>
+        <dl class='col' style="width: 70%;">
+          <div>営業時間：<%= branch.open_hours %></div>
+          <div>定休日：<%= branch.regular_holiday %></div>
+          <div>住所：<%= branch.other_address %></div>
 
-      <br>
+          <br>
 
-      <div>最初の問い合わせからレスポンスが早かった。また、唯一営業担当者が出向いてくださり、顔を合わせてお話ししたことが大きかったです。</div>
-    </dl>
+          <div><%= branch.reviews.last.reason_for_customer_satisfaction %></div>
+        </dl>
+      </div>
+    </div>
   </div>
-</div>
+  <br>
+<% end %>

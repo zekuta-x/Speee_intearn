@@ -1,5 +1,5 @@
 class CitiesController < ApplicationController
   def show
-     @cities = Branch.find(params[:id])
+     @city = City.find(params[:id])
   end
 end
