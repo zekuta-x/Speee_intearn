@@ -3,6 +3,7 @@
 class AssessmentsController < ApplicationController
   def new
     @branch_id = params[:branch_id]
+    @assessment_form = AssessmentForm.new
   end
 
   def show; end
