@@ -31,7 +31,11 @@ namespace :import do
           catch_copy: row['キャッチコピー'],
           introduction: row['紹介文']
         }
-        Branch.find_or_create_by!(branch_attrs)
+        branch = Branch.find_or_create_by!(branch_attrs)
+
+        row['査定依頼可能エリア'].split(',').each do |id|
+          branch.assessable_cities << City.find(id)
+        end
       end
     end
   end
