@@ -4,82 +4,85 @@
   </div>
 </h1>
 
+<div class="text-center">
+<%= notice %>
+</div>
 
 <%= form_with model:@assessments_form, url: assessments_path do |f| %>
 <%= f.hidden_field :branch_id, value: @branch_id %>
 <form class="row g-3">
-    <div class="mb-3">
-        <div class="mb-3">
-          <%= f.label :user_last_name %>
-          <%= f.text_field :user_last_name %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :user_first_name %>
-          <%= f.text_field :user_first_name %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :user_last_name_kana %>
-          <%= f.text_field :user_last_name_kana %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :user_first_name_kana %>
-          <%= f.text_field :user_first_name_kana %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :user_tel %>
-          <%= f.text_field :user_tel %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :user_email %>
-          <%= f.email_field :user_email %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :property_prefecture %>
-          <%= f.text_field :property_prefecture %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :property_city %>
-          <%= f.text_field :property_city %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :property_other_address %>
-          <%= f.text_field :property_other_address %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :property_type %>
-          <%= f.select :property_type, AssessmentForm.property_type.values.to_a %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :property_exclusive_area %>
-          <%= f.number_field :property_exclusive_area %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :property_land_area %>
-          <%= f.number_field :property_land_area %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :property_building_area %>
-          <%= f.number_field :property_building_area %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :property_building_area_unit %>
-          <%= f.select :property_building_area_unit, AssessmentForm.property_building_area_unit.values.to_a %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :property_floor_area %>
-          <%= f.number_field :property_floor_area %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :property_room_plan %>
-          <%= f.select :property_room_plan, AssessmentForm.property_room_plan.values.to_a %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :property_constructed_year %>
-          <%= f.number_field :property_constructed_year %>
-        </div>
+  <div class="mb-3">
+      <div class="mb-3">
+        <%= f.label :user_last_name %>
+        <%= f.text_field :user_last_name %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :user_first_name %>
+        <%= f.text_field :user_first_name %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :user_last_name_kana %>
+        <%= f.text_field :user_last_name_kana %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :user_first_name_kana %>
+        <%= f.text_field :user_first_name_kana %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :user_tel %>
+        <%= f.text_field :user_tel %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :user_email %>
+        <%= f.email_field :user_email %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :property_prefecture %>
+        <%= f.text_field :property_prefecture %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :property_city %>
+        <%= f.text_field :property_city %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :property_other_address %>
+        <%= f.text_field :property_other_address %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :property_type %>
+        <%= f.select :property_type, AssessmentForm.property_type.values.to_a %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :property_exclusive_area %>
+        <%= f.number_field :property_exclusive_area %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :property_land_area %>
+        <%= f.number_field :property_land_area %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :property_building_area %>
+        <%= f.number_field :property_building_area %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :property_building_area_unit %>
+        <%= f.select :property_building_area_unit, AssessmentForm.property_building_area_unit.values.to_a %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :property_floor_area %>
+        <%= f.number_field :property_floor_area %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :property_room_plan %>
+        <%= f.select :property_room_plan, AssessmentForm.property_room_plan.values.to_a %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :property_constructed_year %>
+        <%= f.number_field :property_constructed_year %>
+      </div>
 
-        <%= f.submit '査定依頼をする', class: 'btn btn-primary' %>
-    </div>
+      <%= f.submit '査定依頼をする', class: 'btn btn-primary' %>
+  </div>
 </form>
 <% end %>
 

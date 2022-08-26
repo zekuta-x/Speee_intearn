@@ -20,7 +20,6 @@ class AssessmentsController < ApplicationController
       redirect_to '/assessments/new', notice: t('.error')
     end
 
-    post_api
   end
 
   private
