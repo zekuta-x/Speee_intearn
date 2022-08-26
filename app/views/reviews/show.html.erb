@@ -71,7 +71,7 @@
             <%= formatted_with_unit @review.contract_price %>
             <% if @review.price_reduction_date.present? %>
               <br>
-              <%= formatted_with_unit -@review.price_reduction %>
+              <%= formatted_with_unit(-@review.price_reduction) %>
             <% end %>
             </td>
         </tr>
