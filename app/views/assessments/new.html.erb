@@ -10,12 +10,20 @@
 <div class="m-5">
   <form class="row g-3">
     <div class="mb-3">
-      <label class="form-label">お名前</label>
-      <%= assessment_form.text_field :user_name, class: 'form-control', required: true %>
+      <label class="form-label">お名前(姓)</label>
+      <%= assessment_form.text_field :user_first_name, class: 'form-control', required: true %>
+    </div>
+     <div class="mb-3">
+      <label class="form-label">お名前(姓)</label>
+      <%= assessment_form.text_field :user_last_name, class: 'form-control', required: true %>
+    </div>
+     <div class="mb-3">
+      <label class="form-label">ふりがな(姓)</label>
+      <%= assessment_form.text_field :user_first_name_kana, class: 'form-control', required: true %>
     </div>
     <div class="mb-3">
-      <label class="form-label">ふりがな</label>
-      <%= assessment_form.text_field :user_name_kana, class: 'form-control', required: true %>
+      <label class="form-label">ふりがな(名)</label>
+      <%= assessment_form.text_field :user_last_name_kana, class: 'form-control', required: true %>
     </div>
     <div class="mb-3">
       <label class="form-label">電話番号</label>
