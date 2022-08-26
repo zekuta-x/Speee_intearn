@@ -4,11 +4,11 @@
   </div>
 </h1>
 
+
+<%= form_with model:@assessments_form, url: assessments_path do |f| %>
+<%= f.hidden_field :branch_id, value: @branch_id %>
 <form class="row g-3">
     <div class="mb-3">
-      <%= form_with model: @assessment_form, url: assessments_path do |f| %>
-        <%= f.hidden_field :branch_id, value: @branch_id %>
-
         <div class="mb-3">
           <%= f.label :user_last_name %>
           <%= f.text_field :user_last_name %>
@@ -79,6 +79,7 @@
         </div>
 
         <%= f.submit '査定依頼をする', class: 'btn btn-primary' %>
-      <% end %>
     </div>
 </form>
+<% end %>
+
