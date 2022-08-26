@@ -1,5 +1,6 @@
 <% city.assessable_branches.each do |branch| %>
   <div class="card" style="width: 95%;">
+  <%= link_to branch_path(branch.id), class: 'card-body text-dark text-decoration-none' do %>
     <div class="card-body">
       <div class="row">
         <dl class="col">
@@ -17,10 +18,11 @@
 
           <br>
 
-          <div><%= branch.reviews.last.reason_for_company_selection %></div>
+          <div><%= branch.reviews.last.reason_for_customer_satisfaction %></div>
         </dl>
       </div>
     </div>
+    <% end %>
   </div>
   <br>
 <% end %>
