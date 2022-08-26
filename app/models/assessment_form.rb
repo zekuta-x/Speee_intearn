@@ -51,4 +51,50 @@ class AssessmentForm
   validates :user_first_name_kana, length: { maximum: 31}, presence: true
   validates :user_last_name_kana, length: {maximum: 31}, presence: true
   validates :user_tel, format: { with: VALID_NUMBER_REGEX }, presence: true
+
+  def save
+    return false unless valid?
+    
+    true
+  end
+
+  def  get_address
+    prefecture = Prefecture.find_by(name: property_prefecture)
+    @property_city = prefecture.cities.find_by(name: property_city)
+    @property_address = @property_city.name_with_prefecture + property_other_address
+
+    @user_name = user_last_name + ' ' + user_first_name
+    @user_name_kana = user_last_name_kana + ' ' + user_first_name_kana
+  end
+
+  def post_api_params # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
+    {
+      'branch_id' => branch_id,
+      'property_city' => @property_city.id,
+      'property_address' => @property_address,
+      'property_type' => property_type,
+      'property_exclusive_area' => property_exclusive_area,
+      'property_land_area' => property_land_area,
+      'property_building_area' => property_building_area,
+      'property_building_area_unit' => property_building_area_unit,
+      'property_floor_area' => property_floor_area,
+      'url_param' => url_param,
+      'property_room_plan' => property_room_plan,
+      'property_constructed_year' => property_constructed_year,
+      'user_email' => user_email,
+      'user_name' => @user_name,
+      'user_name_kana' => @user_name_kana,
+      'user_tel' => user_tel
+    }
+  end
+  def post_api
+    get_address
+    pp post_api_params
+    conn = Faraday.new(
+      url: ENV.fetch('API_URI', nil), params: post_api_params, ssl: { verify: false }
+    )
+
+    response = conn.post ENV.fetch('BODY', nil)
+    return response
+  end
 end
