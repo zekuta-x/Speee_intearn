@@ -6,7 +6,7 @@
 <br>
 <dl class='row'>
   <dt class="col-2">売却した不動産会社名</dt>
-  <dd class="col-10"><%= @branch.name_with_company %></dd>
+  <dd class="col-10"><%= @review.branch.name_with_company %></dd>
   <dt class="col-2">住所</dt>
   <dd class="col-10"><%= @review.city.prefecture.name + @review.city.name %></dd>
   <dt class="col-2">売却の理由</dt>
@@ -85,8 +85,8 @@
   </dl>
 </div>
 
-<%= render 'layouts/branch_info', branch: @branch %>
+<%= render 'layouts/branch_info', branch: @review.branch %>
 
 <div div class="d-grid gap-2 col-6 mx-auto">
-  <%= link_to '査定依頼をする', new_assessment_url(branch_id: @branch.id), class: 'btn btn-primary' %>
+  <%= link_to '査定依頼をする', new_assessment_url(branch_id: @review.branch.id), class: 'btn btn-primary' %>
 </div>
