@@ -2,8 +2,8 @@ class AssessmentForm
   include ActiveModel::Model
   include ActiveModel::Attributes
 
-  attribute :property_prefectures, :integer
-  attribute :property_cities, :integer
+  attribute :property_prefecture, :integer
+  attribute :property_city, :integer
   attribute :property_other_address, :string
   attribute :property_type, :integer
   attribute :property_exclusive_area, :integer
@@ -22,8 +22,8 @@ class AssessmentForm
 
   VALID_NUMBER_REGEX = /\A0\d{1,4}-\d{1,4}-\d{3,4}\z/
 
-  validates :property_prefectures, presence: true
-  validates :property_cities, presence: true
+  validates :property_prefecture, presence: true
+  validates :property_city, presence: true
   validates :property_other_address, presence: true
   validates :property_type, presence: true
   validates :property_exclusive_area, presence: true
