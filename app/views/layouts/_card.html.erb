@@ -1,14 +1,12 @@
 <% @branch.reviews.each do |review| %>
   <div class="card" style="width: 95%;">
-    <div class="card-body">
+    <%= link_to review_path, class: 'card-body text-dark text-decoration-none' do %>
       <h5 class="card-title"><%= review.review_title %>: ★<%= review.customer_satisfaction %></h5>
       <p class="card-text"><%= review.reason_for_customer_satisfaction %></p>
       <br>
       <span class="card-text">成約価格 <%= review.contract_price %> 円</span>
       <span class="card-text">(千葉県市川市・<%= review.sold_out_date %> に売却)</span>
-      <br><br>
-      <a href="#" class="btn btn-primary">この口コミを詳しく見る</a>
-    </div>
+    <% end %>
   </div>
   <br>
 <% end %>
