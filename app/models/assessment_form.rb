@@ -10,8 +10,9 @@ class AssessmentForm
   enumerize :property_building_area_unit, in: { m2: 1, tsubo: 2}
   enumerize :property_type, in: { condominium: 1, house: 2, land: 3 }
 
-  attribute :property_prefecture, :integer
-  attribute :property_city, :integer
+  attribute :branch_id, :integer
+  attribute :property_prefecture, :string
+  attribute :property_city, :string
   attribute :property_other_address, :string
   attribute :property_type, :integer
   attribute :property_exclusive_area, :integer
@@ -21,6 +22,7 @@ class AssessmentForm
   attribute :property_floor_area, :integer
   attribute :property_room_plan, :integer
   attribute :property_constructed_year, :integer
+  attribute :url_param, :string
   attribute :user_email, :string
   attribute :user_first_name, :string
   attribute :user_last_name, :string
@@ -30,6 +32,7 @@ class AssessmentForm
 
   VALID_NUMBER_REGEX = /\A0\d{1,4}-\d{1,4}-\d{3,4}\z/
 
+  validates :branch_id, presence:true
   validates :property_prefecture, presence: true
   validates :property_city, presence: true
   validates :property_other_address, presence: true
@@ -41,6 +44,7 @@ class AssessmentForm
   validates :property_floor_area, presence:true
   validates :property_room_plan, presence:true
   validates :property_constructed_year, presence: true
+  validates :url_param, presence: true
   validates :user_email, format: { with: URI::MailTo::EMAIL_REGEXP}, length: { maximum: 100 }, presence: true
   validates :user_first_name, length: { maximum: 15}, presence: true
   validates :user_last_name, length: { maximum: 15}, presence: true
