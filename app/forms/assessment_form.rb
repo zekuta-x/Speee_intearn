@@ -1,6 +1,14 @@
 class AssessmentForm
   include ActiveModel::Model
   include ActiveModel::Attributes
+  extend Enumerize
+
+  enumerize :property_room_plan, in:  { r1: 1, k1_dk1: 2, lk2_ldk2: 3, k2_dk2: 4,
+    ld2_ldk2: 5, k3_dk3: 6, lk3_ldk3: 7,
+    k4_dk4: 8, lk4_ldk4: 9, k5_dk5: 10, lk5_ldk5: 11,
+    k6_dk6: 12, others: 13 }
+  enumerize :property_building_area_unit, in: { m2: 1, tsubo: 2}
+  enumerize :property_type, in: { condominium: 1, house: 2, land: 3 }
 
   attribute :property_prefecture, :integer
   attribute :property_city, :integer
