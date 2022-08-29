@@ -25,32 +25,6 @@ ja:
         fulltime_mediation: '専任媒介契約'
         general_mediation: '一般媒介契約'
         unknown: 'わからない'
-  
-  enumerize:
-    defaults:
-      property_room_plan:
-        r1: '1R(ワンルーム)'
-        k1_dk1: '1K/1DK'
-        lk2_ldk2: '1LK/1LDK'
-        k2_dk2: '2K/2DK'
-        ld2_ldk2: '2LK/2LDK'
-        k3_dk3: '3K/3DK'
-        lk3_ldk3: '3LK/3LDK'
-        k4_dk4: '4K/4DK'
-        lk4_ldk4: '4LK/4LDK'
-        k5_dk5: '5K/5DK'
-        lk5_ldk5: '5LK/5LDK'
-        k6_dk6: '6K/6DK'
-        others: '6LK/6LDK以上'
-
-      property_building_area_unit:
-        m2: '平方メートル'
-        tsubo: '坪'
-      
-      property_type:
-        condominium: '分譲マンション'
-        house: '一戸建て'
-        land: '土地'
 
   assessments:
       create:
