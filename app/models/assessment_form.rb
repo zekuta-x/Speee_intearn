@@ -60,7 +60,7 @@ class AssessmentForm
     "#{user_last_name_kana} #{user_first_name_kana}"
   end
 
-  def post_api_params # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
+  def post_api_params # rubocop:disable Metrics/MethodLength
     {
       'branch_id' => branch_id,
       'property_city' => @property_city.id,
