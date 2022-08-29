@@ -23,8 +23,10 @@
     </a>
 
     <ul class="dropdown-menu" aria-labelledby="sort-options">
-      <li><%= link_to '新しい順', branch_path(latest: true), class: 'dropdown-item' %></li>
-      <li><%= link_to '評価が高い順', branch_path(best: true), class: 'dropdown-item' %></li>
+      <li><%= link_to '売却日時が新しい順', branch_path(sold_out_date_desc: true), class: 'dropdown-item' %></li>
+      <li><%= link_to '売却日時が古い順', branch_path(sold_out_date_asc: true), class: 'dropdown-item' %></li>
+      <li><%= link_to '評価が高い順', branch_path(satisfaction_desc: true), class: 'dropdown-item' %></li>
+      <li><%= link_to '評価が低い順', branch_path(satisfaction_asc: true), class: 'dropdown-item' %></li>
     </ul>
   </div>
   <br>
