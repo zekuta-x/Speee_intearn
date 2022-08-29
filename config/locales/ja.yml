@@ -29,4 +29,4 @@ ja:
   assessments:
       create:
         ok: '査定依頼が正常に完了しました'
-        error: '査定依頼が正常に完了しませんでした'
+        error: '査定依頼が失敗しました'
