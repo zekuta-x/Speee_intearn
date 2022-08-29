@@ -2,6 +2,6 @@
 
 class PrefecturesController < ApplicationController
   def index
-    @prefecture = Prefecture.all
+    @prefecture = Prefecture.includes(:cities).all
   end
 end
