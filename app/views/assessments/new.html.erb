@@ -8,11 +8,11 @@
 <%= notice %>
 </div>
 
-<%= form_with model: @assessment_form, url: assessments_path do |f| %>
+<%= form_with model: @assessments_form, url: assessments_path do |f| %>
 <%= f.hidden_field :branch_id, value: @branch_id %>
-<% if @assessment_form.errors.any? %>
+<% if @assessments_form.errors.any? %>
   <ul>
-  <% @assessment_form.errors.full_messages.each do |message| %>
+  <% @assessments_form.errors.full_messages.each do |message| %>
     <div style='color:red'><%= message %></div>
   <% end %>
   </ul>
