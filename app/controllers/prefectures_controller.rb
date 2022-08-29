@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class HomesController < ApplicationController
+class PrefecturesController < ApplicationController
   def index
     @prefecture = Prefecture.all
   end
