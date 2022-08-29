@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :cities, only: %i[show]
 
   # 【ヘルスチェック用】
-  get '/opt', to: 'assessments#new'
+  get '/opt/heartbeat', to: 'assessments#new'
 end
