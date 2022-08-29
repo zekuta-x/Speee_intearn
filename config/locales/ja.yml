@@ -38,3 +38,11 @@ ja:
         format: '%n%u'
         negative_format: '-%n%u'
         precision: 0
+
+  views:
+    pagination:
+      first: 初めへ
+      last: 最後へ
+      previous: ←
+      next: →
+      truncate: "..."
