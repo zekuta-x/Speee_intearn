@@ -25,4 +25,8 @@ class Branch < ApplicationRecord
 
     "#{company.name}　#{name}"
   end
+
+  def address
+    "#{city.name_with_prefecture}#{other_address}"
+  end
 end

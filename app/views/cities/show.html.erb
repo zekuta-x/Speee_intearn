@@ -1,0 +1,13 @@
+<figure class="text-center">
+  <div class="m-5">
+    <h1 class="display-1"><%= @city.prefecture.name %> / <%= @city.name %></h1>
+  </div>
+</figure>
+
+<div class="m-5">
+  <%= render 'area_branch_card', city: @city %>
+</div>
+
+<div class="m-5" style>
+  <%= render 'area_list', city: @city %>
+</div>

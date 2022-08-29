@@ -16,47 +16,26 @@
 </figure>
 <br>
 
-<div div class="d-grid gap-2 col-6 mx-auto">
-  <%= link_to '査定依頼をする', new_assessment_url(branch_id: @branch.id), class: 'btn btn-primary' %>
+<div class="m-5">
+  <div class="dropdown">
+    <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="sort-options" data-bs-toggle="dropdown" aria-expanded="false">
+      並び替え
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="sort-options">
+      <li><%= link_to '売却日時が新しい順', branch_path(sold_out_date_desc: true), class: 'dropdown-item' %></li>
+      <li><%= link_to '売却日時が古い順', branch_path(sold_out_date_asc: true), class: 'dropdown-item' %></li>
+      <li><%= link_to '評価が高い順', branch_path(satisfaction_desc: true), class: 'dropdown-item' %></li>
+      <li><%= link_to '評価が低い順', branch_path(satisfaction_asc: true), class: 'dropdown-item' %></li>
+    </ul>
+  </div>
+  <br>
+  <%= render 'layouts/card' %>
 </div>
 
-<div class="row">
-  <dl class="col">
-    <dt>企業名</dt>
-    <dd><%= @branch.company.name %></dd>
+<div div class="d-grid gap-2 col-6 mx-auto">
+  <%= link_to '査定依頼をする', new_assessment_url(branch_id: @branch.id), class: 'btn btn-primary' %>
+  <br><br>
+</div>
 
-    <% if @branch.post_code.present? %>
-      <dt>郵便番号</dt>
-      <dd><%= @branch.post_code %></dd>
-    <% end %>
-
-    <dt>住所</dt>
-    <dd><%= @branch.other_address %></dd>
-
-    <% if @branch.phone_number.present? %>
-      <dt>電話番号</dt>
-      <dd><%= @branch.phone_number %></dd>
-    <% end %>
-
-    <% if @branch.fax_number.present? %>
-      <dt>FAX</dt>
-      <dd><%= @branch.fax_number %></dd>
-    <% end %>
-
-    <% if @branch.open_hours.present? %>
-      <dt>営業時間</dt>
-      <dd><%= @branch.open_hours %></dd>
-    <% end %>
-
-    <% if @branch.regular_holiday.present? %>
-      <dt>定休日</dt>
-      <dd><%= @branch.regular_holiday %></dd>
-    <% end %>
-  </dl>
-
-  <dl class='col'>
-    <div class="mx-auto m-5" style="width: 500px;">
-      <%= image_tag @branch.logo_url, height: 300 %>
-    </div>
-  </dl>
-</dl>
+<%= render 'layouts/branch_info', branch: @branch %>

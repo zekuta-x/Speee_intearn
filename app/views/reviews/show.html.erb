@@ -1,0 +1,92 @@
+<figure class="text-center">
+  <div class="m-5">
+    <h2><%= @review.review_title %></h2>
+  </div>
+</figure>
+<br>
+<dl class='row'>
+  <dt class="col-2">売却した不動産会社名</dt>
+  <dd class="col-10"><%= @review.branch.name_with_company %></dd>
+  <dt class="col-2">住所</dt>
+  <dd class="col-10"><%= @review.city.name_with_prefecture %></dd>
+  <dt class="col-2">売却の理由</dt>
+  <dd class="col-10"><%= @review.reason_for_sale_i18n %>のため</dd>
+  <dt class="col-2">売却経験</dt>
+  <dd class="col-10">今回の売却が<%= @review.number_of_sale_i18n %></dd>
+</dl>
+<br>
+
+<div class="row">
+  <dl class="col">
+    <dt>売却時に不安だったこと</dt>
+    <dd><%= @review.concern_about_sale %></dd>
+
+    <dt>この会社の決め手</dt>
+    <dd><%= @review.reason_for_company_selection %></dd>
+
+    <dt>不動産会社の対応満足度：★<%= @review.customer_satisfaction %></dt>
+    <dd><%= @review.reason_for_customer_satisfaction %></dd>
+
+    <dt>今後売却する人へのアドバイス</dt>
+    <dd><%= @review.advice_on_sale %></dd>
+
+    <% if @review.improvement_to_company.present? %>
+      <dt>不動産会社に改善してほしい点</dt>
+      <dd><%= @review.improvement_to_company %></dd>
+    <% end %>
+
+    <dt>売却時期と価格について</dt>
+    <table class="table">
+      <thead>
+        <th scope="col"></th>
+        <th scope="col">時期</th>
+        <th scope="col">価格</th>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">売却検討</th>
+          <td><%= formatted @review.sale_consideration_date %></td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <th scope="row">査定依頼</th>
+          <td><%= formatted @review.assessment_request_date %></td>
+          <td><%= formatted_with_unit @review.appraisal_price %></td>
+        </tr>
+        <tr>
+          <th scope="row">売り出し</th>
+          <td><%= formatted @review.sale_date %></td>
+          <td><%= formatted_with_unit @review.sale_price %></td>
+        </tr>
+        <tr>
+          <th scope="row">売却</th>
+          <td>
+            <%= formatted @review.sold_out_date %>
+            <% if @review.price_reduction_date.present? %>
+              <br>
+              <%= @review.price_reduction_date %>ヶ月後に値下げ
+            <% end %>
+            </td>
+          <td>
+            <%= formatted_with_unit @review.contract_price %>
+            <% if @review.price_reduction_date.present? %>
+              <br>
+              <%= formatted_with_unit(-@review.price_reduction) %>
+            <% end %>
+            </td>
+        </tr>
+        <tr>
+          <th scope="row">引き渡し</th>
+          <td><%= formatted @review.delivery_date %></td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+  </dl>
+</div>
+
+<%= render 'layouts/branch_info', branch: @review.branch %>
+
+<div div class="d-grid gap-2 col-6 mx-auto">
+  <%= link_to '査定依頼をする', new_assessment_url(branch_id: @review.branch.id), class: 'btn btn-primary' %>
+</div>
