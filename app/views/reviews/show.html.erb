@@ -51,12 +51,12 @@
         <tr>
           <th scope="row">査定依頼</th>
           <td><%= formatted @review.assessment_request_date %></td>
-          <td><%= @review.appraisal_price %></td>
+          <td><%= formatted_with_unit @review.appraisal_price %></td>
         </tr>
         <tr>
           <th scope="row">売り出し</th>
           <td><%= formatted @review.sale_date %></td>
-          <td><%= @review.sale_price %></td>
+          <td><%= formatted_with_unit @review.sale_price %></td>
         </tr>
         <tr>
           <th scope="row">売却</th>
@@ -68,10 +68,10 @@
             <% end %>
             </td>
           <td>
-            <%= @review.contract_price %>
+            <%= formatted_with_unit @review.contract_price %>
             <% if @review.price_reduction_date.present? %>
               <br>
-              -<%= @review.price_reduction %>
+              <%= formatted_with_unit(-@review.price_reduction) %>
             <% end %>
             </td>
         </tr>

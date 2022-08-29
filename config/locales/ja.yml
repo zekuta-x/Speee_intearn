@@ -1,5 +1,5 @@
 ja:
-  enums: 
+  enums:
     review:
       sex:
         male: '男性'
@@ -25,8 +25,16 @@ ja:
         fulltime_mediation: '専任媒介契約'
         general_mediation: '一般媒介契約'
         unknown: 'わからない'
-        
+
   assessments:
       create:
         ok: '査定依頼が正常に完了しました'
         error: '査定依頼が正常に完了しませんでした'
+
+  number:
+    currency:
+      format:
+        unit: '万円'
+        format: '%n%u'
+        negative_format: '-%n%u'
+        precision: 0
