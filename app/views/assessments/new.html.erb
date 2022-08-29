@@ -8,7 +8,7 @@
 <%= notice %>
 </div>
 
-<%= form_with model:@assessments_form, url: assessments_path do |f| %>
+<%= form_with model: @assessments_form, url: assessments_path do |f| %>
 <%= f.hidden_field :branch_id, value: @branch_id %>
 <form class="row g-3">
   <div class="mb-3">
@@ -17,7 +17,7 @@
         <%= f.text_field :user_last_name, class: 'form-control' %>
       </div>
       <div class="mb-3">
-        <%= f.label :user_first_name, 'お名前(名)'%>
+        <%= f.label :user_first_name, 'お名前(名)' %>
         <%= f.text_field :user_first_name, class: 'form-control' %>
       </div>
       <div class="mb-3">
