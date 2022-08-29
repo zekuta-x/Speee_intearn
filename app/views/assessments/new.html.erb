@@ -13,7 +13,7 @@
 <% if @assessments_form.errors.any? %>
   <ul>
   <% @assessments_form.errors.full_messages.each do |message| %>
-    <div style='color:red'><%= message %></div>
+    <div style='color:red'><%= t(message) %></div>
   <% end %>
   </ul>
 <% end %>
