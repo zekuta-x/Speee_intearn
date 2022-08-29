@@ -17,6 +17,10 @@
 <br>
 
 <div class="m-5">
+  <p>
+    <%= link_to '新しい順', branch_path(latest: true) %>
+     | <%= link_to '評価が高い順', branch_path(best: true) %>
+  </p>
   <%= render 'layouts/card' %>
 </div>
 
