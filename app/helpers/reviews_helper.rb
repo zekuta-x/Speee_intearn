@@ -6,6 +6,7 @@ module ReviewsHelper
   end
 
   def formatted_with_unit(price)
-    number_to_currency(price / (10**4).round, locale: 'ja')
+    price_in_10thousands = (price / (10**4)).round # 下4桁を丸めて万単位に
+    number_to_currency(price_in_10thousands, locale: 'ja')
   end
 end
