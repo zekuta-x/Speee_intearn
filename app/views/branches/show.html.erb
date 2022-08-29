@@ -16,18 +16,25 @@
 </figure>
 <br>
 
-<div class="m-5">
-  <div class="dropdown">
-    <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="sort-options" data-bs-toggle="dropdown" aria-expanded="false">
-      並び替え
-    </a>
+<div class="container p-5">
+  <div class="row">
+    <div class="col">
+      <h4>売却したユーザーの口コミ（平均評価★3.5）</h4>
+    </div>
+    <div class="col-auto">
+      <div class="dropdown">
+        <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" id="sort-options" data-bs-toggle="dropdown" aria-expanded="false">
+          並び替え
+        </a>
 
-    <ul class="dropdown-menu" aria-labelledby="sort-options">
-      <li><%= link_to '売却日時が新しい順', branch_path(sold_out_date_desc: true), class: 'dropdown-item' %></li>
-      <li><%= link_to '売却日時が古い順', branch_path(sold_out_date_asc: true), class: 'dropdown-item' %></li>
-      <li><%= link_to '評価が高い順', branch_path(satisfaction_desc: true), class: 'dropdown-item' %></li>
-      <li><%= link_to '評価が低い順', branch_path(satisfaction_asc: true), class: 'dropdown-item' %></li>
-    </ul>
+        <ul class="dropdown-menu" aria-labelledby="sort-options">
+          <li><%= link_to '売却日時が新しい順', branch_path(sold_out_date_desc: true), class: 'dropdown-item' %></li>
+          <li><%= link_to '売却日時が古い順', branch_path(sold_out_date_asc: true), class: 'dropdown-item' %></li>
+          <li><%= link_to '評価が高い順', branch_path(satisfaction_desc: true), class: 'dropdown-item' %></li>
+          <li><%= link_to '評価が低い順', branch_path(satisfaction_asc: true), class: 'dropdown-item' %></li>
+        </ul>
+      </div>
+    </div>
   </div>
   <br>
   <%= render 'layouts/card' %>
