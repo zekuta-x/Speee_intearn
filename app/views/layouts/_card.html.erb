@@ -1,4 +1,4 @@
-<% @branch.reviews.each do |review| %>
+<% @reviews.each do |review| %>
   <div class="card" style="width: 95%;">
     <%= link_to review_path(review.id), class: 'card-body text-dark text-decoration-none' do %>
       <h5 class="card-title"><%= review.review_title %>: ★<%= review.customer_satisfaction %></h5>
