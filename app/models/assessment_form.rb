@@ -54,12 +54,6 @@ class AssessmentForm
   validates :user_last_name_kana, length: { maximum: 31 }, presence: true
   validates :user_tel, format: { with: VALID_NUMBER_REGEX }, presence: true
 
-  def save
-    return false unless valid?
-
-    true
-  end
-
   def address_search
     prefecture = Prefecture.find_by(name: property_prefecture)
     @property_city = prefecture.cities.find_by(name: property_city)
@@ -96,11 +90,12 @@ class AssessmentForm
   end
 
   def post_api
+    return false unless valid?
+
     address_search
     conn = Faraday.new(
       url: ENV.fetch('API_URI', nil), params: post_api_params, ssl: { verify: false }
     )
-
     conn.post ENV.fetch('BODY', nil)
   end
 end

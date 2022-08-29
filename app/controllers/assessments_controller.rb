@@ -11,9 +11,8 @@ class AssessmentsController < ApplicationController
   def create
     @assessment_form = AssessmentForm.new(temp_param)
     @assessment_form.url_param = request.host
-    if @assessment_form.save
-      response = @assessment_form.post_api
-      redirect_to '/assessments/1', notice: t('.ok') if response.status == 200
+    if @assessment_form.post_api
+      redirect_to '/assessments/1', notice: t('.ok')
     else
       redirect_to '/assessments/new', notice: t('.error')
     end
