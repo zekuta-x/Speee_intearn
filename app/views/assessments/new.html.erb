@@ -62,7 +62,7 @@
       <div class="mb-3">
         <div>建物面積単位</div>
           <% property_building_area_unit.each do |key,value| %>
-            <%= f.label :property_building_area_unit,key %>
+            <%= f.label :property_building_area_unit, key %>
             <%= f.radio_button :property_building_area_unit, value, class: 'form-radio' %>
           <% end %>
       </div>
