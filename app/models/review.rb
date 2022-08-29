@@ -11,6 +11,9 @@ class Review < ApplicationRecord
   belongs_to :city
   belongs_to :property_type
 
+  scope :latest, -> { order(sold_out_date: :desc) }
+  scope :best, -> { order(customer_satisfaction: :desc) }
+
   validates :last_name, presence: true
   validates :first_name, presence: true
   validates :sex, presence: true
