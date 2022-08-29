@@ -14,7 +14,7 @@ class AssessmentsController < ApplicationController
     if @assessment_form.post_api
       redirect_to '/assessments/1', notice: t('.ok')
     else
-      redirect_to '/assessments/new', notice: t('.error')
+      render '/assessments/new', notice: t('.error'), status: :unprocessable_entity
     end
   end
 
