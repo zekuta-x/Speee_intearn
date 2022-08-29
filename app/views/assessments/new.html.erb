@@ -50,7 +50,7 @@
       </div>
       <div class="mb-3">
         <%= f.label :property_type, '物件種別' %>
-        <%= f.select :property_type, AssessmentForm.property_type.values.map(&:text), {}, class: 'form-select' %>
+        <%= f.select :property_type, property_type, {}, class: 'form-select' %>
       </div>
       <div class="mb-3">
         <%= f.label :property_exclusive_area, '占有面積' %>
@@ -66,7 +66,7 @@
       </div>
       <div class="mb-3">
         <%= f.label :property_building_area_unit, '建物面積単位' %>
-        <%= f.select :property_building_area_unit, AssessmentForm.property_building_area_unit.values.map(&:text), {}, class: 'form-select' %>
+        <%= f.select :property_building_area_unit, property_building_area_unit, {}, class: 'form-select' %>
       </div>
       <div class="mb-3">
         <%= f.label :property_floor_area, '延床面積' %>
@@ -74,7 +74,7 @@
       </div>
       <div class="mb-3">
         <%= f.label :property_room_plan, '間取りを選択' %>
-        <%= f.select :property_room_plan, AssessmentForm.property_room_plan.values.map(&:text), {}, class: 'form-select' %>
+        <%= f.select :property_room_plan, property_room_plan, {}, class: 'form-select' %>
       </div>
       <div class="mb-3">
         <%= f.label :property_constructed_year, '築年数' %>
