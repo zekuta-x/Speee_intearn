@@ -8,7 +8,7 @@
           <%= prefecture.name %>
         </button>
       </h1>
-      <div id='v<%= prefecture.id %>' class="accordion-collapse collapse show" aria-labelledby="<%= prefecture.name %>">
+      <div id='v<%= prefecture.id %>' class="accordion-collapse collapse" aria-labelledby="<%= prefecture.name %>">
         <div class="accordion-body">
           <div class="d-flex flex-wrap">
             <% prefecture.cities.each do |city| %>
