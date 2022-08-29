@@ -60,8 +60,11 @@
         <%= f.select :property_type, property_type, {}, class: 'form-select' %>
       </div>
       <div class="mb-3">
-        <%= f.label :property_building_area_unit, '建物面積単位' %>
-        <%= f.select :property_building_area_unit, property_building_area_unit, {}, class: 'form-select' %>
+        <div>建物面積単位</div>
+          <% property_building_area_unit.each do |key,value| %>
+            <%= f.label :property_building_area_unit,key %>
+            <%= f.radio_button :property_building_area_unit, value, class: 'form-radio' %>
+          <% end %>
       </div>
       <div class="mb-3">
         <%= f.label :property_exclusive_area, '専有面積' %>
