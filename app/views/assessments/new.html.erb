@@ -53,7 +53,11 @@
         <%= f.select :property_type, property_type, {}, class: 'form-select' %>
       </div>
       <div class="mb-3">
-        <%= f.label :property_exclusive_area, '占有面積' %>
+        <%= f.label :property_building_area_unit, '建物面積単位' %>
+        <%= f.select :property_building_area_unit, property_building_area_unit, {}, class: 'form-select' %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :property_exclusive_area, '専有面積' %>
         <%= f.number_field :property_exclusive_area, class: 'form-control' %>
       </div>
       <div class="mb-3">
@@ -63,10 +67,6 @@
       <div class="mb-3">
         <%= f.label :property_building_area, '建物面積' %>
         <%= f.number_field :property_building_area, class: 'form-control' %>
-      </div>
-      <div class="mb-3">
-        <%= f.label :property_building_area_unit, '建物面積単位' %>
-        <%= f.select :property_building_area_unit, property_building_area_unit, {}, class: 'form-select' %>
       </div>
       <div class="mb-3">
         <%= f.label :property_floor_area, '延床面積' %>
