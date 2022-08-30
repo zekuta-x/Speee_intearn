@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   # 【ヘルスチェック用】
   get '/ops/heartbeat', to: 'assessments#new'
+  # 【査定依頼フォームでのリダイレクト用】
+  get '/assessments', to: redirect('/assessments/new')
 end

@@ -29,8 +29,32 @@ ja:
   assessments:
       create:
         ok: '査定依頼が正常に完了しました'
-        error: '査定依頼が正常に完了しませんでした'
+        error: '査定依頼が失敗しました'
 
+  activemodel:
+    models:
+      assessment_form: '査定依頼フォーム'
+    attributes:
+      assessment_form:
+        branch_id: '企業ID'
+        property_prefecture: '都道府県'
+        property_city: '市区町村'
+        property_other_address: 'それ以降'
+        property_type: '物件種別'
+        property_exclusive_area: '専有面積'
+        property_land_area: '土地面積'
+        property_building_area: '建物面積'
+        property_building_area_unit: '建物面積単位'
+        property_floor_area: '延床面積'
+        property_room_plan: '間取りを選択'
+        property_constructed_year: '築年数'
+        url_param: 'URL'
+        user_email: 'メールアドレス' 
+        user_first_name: 'お名前(名)'
+        user_last_name: 'お名前(姓)'
+        user_first_name_kana: 'ふりがな(名)' 
+        user_last_name_kana: 'ふりがな(姓)'
+        user_tel: '電話番号'
   number:
     currency:
       format:
