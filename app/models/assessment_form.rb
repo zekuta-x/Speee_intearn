@@ -82,7 +82,7 @@ class AssessmentForm
   end
 
   def post_api
-    return false unless valid?
+    return unless valid?
 
     address_search
     conn = Faraday.new(
