@@ -1,5 +1,5 @@
 <% @reviews.each do |review| %>
-  <div class="card" style="width: 95%;">
+  <div class="card">
     <%= link_to review_path(review.id), class: 'card-body text-dark text-decoration-none' do %>
       <h5 class="card-title"><%= review.review_title %>: ★<%= review.customer_satisfaction %></h5>
       <p class="card-text"><%= review.reason_for_customer_satisfaction %></p>
