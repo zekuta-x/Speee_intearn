@@ -29,4 +29,8 @@ class Branch < ApplicationRecord
   def address
     "#{city.name_with_prefecture}#{other_address}"
   end
+
+  def average_satisfaction
+    reviews.average(:customer_satisfaction).round(1)
+  end
 end
