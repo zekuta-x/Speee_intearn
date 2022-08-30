@@ -1,0 +1,25 @@
+
+<% prefecture.each do |prefecture| %>
+  <div class="accordion" id="prefectures">
+    <div class="accordion-item">
+      <h1 class="accordion-header" id='<%= prefecture.name %>'>
+        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+        data-bs-target="#v<%= prefecture.id %>" aria-expanded='<%= prefecture.id == 1 %>' <%= prefecture.id %>>
+          <%= prefecture.name %>
+        </button>
+      </h1>
+      <div id='v<%= prefecture.id %>' class="accordion-collapse collapse" aria-labelledby="<%= prefecture.name %>">
+        <div class="accordion-body">
+          <div class="d-flex flex-wrap">
+            <% prefecture.cities.each do |city| %>
+              <%= link_to city_path(city.id), class: 'link-primary' do %>
+              <div class="p-2 bd-highlight"><%= city.name %></div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+<% end %>
